@@ -32,11 +32,8 @@ if selected == 'About Page':
     st.title("What's Inside?")
     st.write('Dalam dashboard ini tersedia empat menu utama, yaitu: ')
 
-    '''
-    # This is the document title
-
-    This is some _markdown_.
-    '''
+    st.write('**1. About Page**')
+    st.write('Berisi tentang informasi dashboard mencakup latar belakang, fitur yang tersedia, dan cara penggunaan dashboard')
 
 if selected == 'Analisis Deskriptif Variabel':
     # page title
