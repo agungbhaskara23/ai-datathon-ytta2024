@@ -6,7 +6,7 @@ from streamlit_option_menu import option_menu
 with st.sidebar:
     selected = option_menu('Dashboard Indeks Kerentanan Penyebaran Penyakit DBD (IK-DBD)',
                            ['About Page', 'Analisis Deskriptif Variabel', 
-                            'Indeks Kerentanan Penyakit DBD (IK-DBD)','Prediksi Nilai IK-DBD'],
+                            'Indeks Kerentanan Penyakit DBD (IK DBD)','Prediksi Nilai IK DBD'],
                            menu_icon='hospital',
                            icons=['house', 'gear', 'person', 'app'],
                            default_index=0)
@@ -16,10 +16,13 @@ if selected == 'About Page':
     # page title
     st.title('Introduction')
     
-    #
+    # background story
+    
 
 if selected == 'Analisis Deskriptif Variabel':
     # page title
     st.title('Variabel-variabel Penyusun Indeks')
     
-    #
+    # import data
+    dataset = pd.read_excel('Dataset-Olah-2024.xlsx')
+    dataset
