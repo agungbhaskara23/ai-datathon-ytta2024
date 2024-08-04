@@ -212,7 +212,7 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
     st.title('Indeks Kerentanan DBD / IK DBD')
 
     st.write('Dalam dashboard ini, penghitungan IK DBD dilakukan hanya pada tahun 2022 saja dengan menyesuaikan ketersediaan data kasus penderita DBD oleh Kementerian Kesehatan. Model penghitungan indeks kerentanan DBD '
-            '(IK DBD) dibangun dengan menggunakan dataset pada tahun 2020, 2021, dan 2023'. Bobot dihitung dengan menggunakan metode PCA')
+            '(IK DBD) dibangun dengan menggunakan dataset pada tahun 2020, 2021, dan 2023. Bobot dihitung dengan menggunakan metode PCA')
     st.write('Hasil perolehan nilai indeks kemudian dilanjutkan dengan proses *clustering* atau pengelompokkan untuk melihat pola kedekatan atau pengelompokkan antarnilai indeks.')
 
     col1, col2, col3 = st.columns(3)
