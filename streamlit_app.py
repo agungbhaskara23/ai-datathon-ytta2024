@@ -193,18 +193,18 @@ if selected == 'Learn about Data':
    
     if variable_option == "NDVI" and year_option != None:
         st.write("### Deskripsi Data") 
-        st.write("NDVI merupakan indeks dari cita satelit yang mampu memetakan daerah vegetasi di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDVI tinggi**, maka terdapat '
-        'banyak vegetasi lebat sehingga menjadi habitat yg baik untuk nyamuk.")
+        st.write('NDVI merupakan indeks dari cita satelit yang mampu memetakan daerah vegetasi di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDVI tinggi**, maka terdapat '
+        'banyak vegetasi lebat sehingga menjadi habitat yg baik untuk nyamuk.')
 
     if variable_option == "NDBI" and year_option != None:
         st.write("### Deskripsi Data") 
-        st.write("NDBI merupakan indeks dari citra satelit yang mampu memetakan daerah lahan terbangun di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDBI tinggi**, maka terdapat '
-        'banyak pemukiman yang mengakibatkan penduduk makin padat dan potensi penyebaran nyamuk DBD makin tinggi")
+        st.write('NDBI merupakan indeks dari citra satelit yang mampu memetakan daerah lahan terbangun di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDBI tinggi**, maka terdapat '
+        'banyak pemukiman yang mengakibatkan penduduk makin padat dan potensi penyebaran nyamuk DBD makin tinggi')
 
     if variable_option == "NDWI" and year_option != None:
         st.write("### Deskripsi Data") 
-        st.write("NDWI merupakan indeks dari citra satelit yang mampu memetakan daerah perairan di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDBI tinggi**, maka terdapat '
-        'cukup banyak wilayah yang menjadi genangan air sebagai tempat perkembangbiak nyamuk")
+        st.write('NDWI merupakan indeks dari citra satelit yang mampu memetakan daerah perairan di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDBI tinggi**, maka terdapat '
+        'cukup banyak wilayah yang menjadi genangan air sebagai tempat perkembangbiak nyamuk')
 
 # IK DBD
 if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
