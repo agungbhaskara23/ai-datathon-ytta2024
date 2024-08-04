@@ -34,8 +34,8 @@ if selected == 'Analisis Deskriptif Variabel':
     )
 
     if variable_option = "NDVI":
-        st.title('Haloo NDVI")
+        st.title("Haloo NDVI")
 
     if variable_option = "NDBI":
-        st.title('Haloo NDBI")
+        st.title("Haloo NDBI")
     
