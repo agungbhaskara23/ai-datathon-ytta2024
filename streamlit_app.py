@@ -103,19 +103,19 @@ if selected == 'Learn about Data':
 
         json1 = f"data/shp_java_kabkota.geojson"
         map = folium.Map(location=[-7.244198, 109.616631], zoom_start=4, scrollWheelZoom=False, tiles='CartoDB positron')
-        choropleth = folium.Choropleth(
+        folium.Choropleth(
                     geo_data=json1,
                     data=df_2022,
                     columns=('KAB/KOT', variable_option),
-                    key_on='feature.properties.name',
+                    key_on='feature.properties.ADM2_EN',
                     line_opacity=0.8,
                     highlight=True
-        )
-        choropleth.geojson.add_to(map)
+        ).add_to(map)
+        st_map = st_folium(map, width=700, height=450)
         # choropleth.geojson.add_child(
         #     folium.features.GeoJsonTooltip(['name', 'population', 'per_100k'], labels=False)
         # )
-        st_map = st_folium(map, width=700, height=450)
+
     
     if year_option == "2023" and variable_option != None:
         
