@@ -190,26 +190,15 @@ if selected == 'Learn about Data':
         )
         choropleth.geojson.add_to(map)
         st_map = st_folium(map, width=1500, height=550) 
+   
+    if variable_option == "NDVI":
+        st.write("### Deskripsi Data") 
+        st.write("NDVI merupakan indeks yang mampu memetakan vegetasi di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDVI tinggi**, maka terdapat '
+        'banyak vegetasi lebat sehingga menjadi habitat yg baik untuk nyamuk.")
 
-        # tooltip = folium.features.GeoJson(json1, name="ADM2_EN", popup=folium.features.GeoJsonPop(field=["ADM2_EN"]))
-        # tooltip.geojson.add_to(map)
+    if variable_option == "NDBI":
+        st.write("### Deskripsi Data") 
+        st.write("NDVI merupakan indeks yang mampu memetakan vegetasi di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDVI tinggi**, maka terdapat '
+        'banyak vegetasi lebat sehingga menjadi habitat yg baik untuk nyamuk.")
     
     
-    # def display_map(df, year, quarter):
-    #     df = df[(df['Year'] == year) & (df['Quarter'] == quarter)]
-    
-
-        
-        
-    #     choropleth.geojson.add_to(map)
-    
-    #     df_indexed = df.set_index('State Name')
-    #     for feature in choropleth.geojson.data['features']:
-    #         state_name = feature['properties']['name']
-    #         feature['properties']['population'] = 'Population: ' + '{:,}'.format(df_indexed.loc[state_name, 'State Pop'][0]) if state_name in list(df_indexed.index) else ''
-    #         feature['properties']['per_100k'] = 'Reports/100K Population: ' + str(round(df_indexed.loc[state_name, 'Reports per 100K-F&O together'][0])) if state_name in list(df_indexed.index) else ''
-        
-    #     state_name = ''
-    #     if st_map['last_active_drawing']:
-    #         state_name = st_map['last_active_drawing']['properties']['name']
-    #     return state_name
