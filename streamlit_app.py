@@ -55,16 +55,16 @@ if selected == 'Analisis Deskriptif Variabel':
     df_2023 = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/Dataset-Olah-2023.csv', delimiter=';', decimal=',', thousands='.')
 
     variable_option = st.selectbox(
-        "Option",("NDVI", "NDBI", "NDWI", "ETC"), index=None, placeholder="Pilih variabel", label_visibility="hidden"
+        "Option",("NDVI", "NDBI", "NDWI", "CO2", "CO", "Curah Hujan", "Suhu", "Kelembaban", "Kepadatan Penduduk", "Persentase Penduduk Miskin", "Rasio Dokter"), index=None, placeholder="Pilih variabel", label_visibility="hidden"
     )
 
     if variable_option == "NDVI":
         # Row A
-        st.markdown('### Metrics')
+        st.markdown('### Summary Statistics')
         col1, col2, col3 = st.columns(3)
-        col1.metric("Temperature", "70 °F", "1.2 °F")
-        col2.metric("Wind", "9 mph", "-8%")
-        col3.metric("Humidity", "86%", "4%")
+        col1.metric("Tertinggi", df_2020[variable_option].max(), "1.2 °F")
+        col2.metric("Terendah", df_2020[variable_option].min(), "-8%")
+        col3.metric("Rata-rata", df_2020[variable_option].sum()/len(df_2020), "4%")
 
     if variable_option == "NDBI":
         st.write("Haloo NDBI")
