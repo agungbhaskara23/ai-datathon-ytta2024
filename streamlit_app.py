@@ -26,17 +26,17 @@ if selected == 'About Page':
     #
 
 # Analisis Deskriptif Variabel
-elif selected == 'Analisis Deskriptif Variabel':
+else if selected == 'Analisis Deskriptif Variabel':
 
   # page title
 
 
-elif selected == 'Indeks Kerentanan Penyakit DBD (IK-DBD)':
+else if selected == 'Indeks Kerentanan Penyakit DBD (IK-DBD)':
 
   # page title
 
 
-elif selected == 'Prediksi Nilai IK-DBDl':
+else if selected == 'Prediksi Nilai IK-DBDl':
 
   # page title
 
