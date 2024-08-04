@@ -63,12 +63,13 @@ if selected == 'Learn about Data':
     )
 
     if variable_option == "NDVI":
-        # Row A
         st.markdown('### Summary Statistics')
-        col1, col2, col3 = st.columns(3)
-        col1.metric("Tertinggi", round(df_2023[variable_option].max(),4), "1.2 °F")
+        col1, col2, col3, col4, col5 = st.columns(5)
+        col1.metric("Rata-rata", round(df_2023[variable_option].max(),4), "1.2 °F")
         col2.metric("Terendah", round(df_2023[variable_option].min(),4), "-8%")
-        col3.metric("Rata-rata", round(df_2023[variable_option].sum()/len(df_2020),4), "4%")
+        col3.metric("Median", round(df_2023[variable_option].sum()/len(df_2020),4), "4%")
+        col4.metric("Tertinggi", round(df_2023[variable_option].min(),4), "-8%")
+        col5.metric("Standar Deviasi", round(df_2023[variable_option].sum()/len(df_2020),4), "4%")
 
     if variable_option == "NDBI":
         st.write("Haloo NDBI")
