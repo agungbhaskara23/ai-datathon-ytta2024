@@ -74,7 +74,7 @@ if selected == 'Learn about Data':
         col2.metric("Terendah", round(df_2020[variable_option].min(),4), "-8%")
         col3.metric("Median", round(df_2020[variable_option].median(),4), "4%")
         col4.metric("Tertinggi", round(df_2020[variable_option].max(),4), "-8%")
-        col5.metric("Standar Deviasi", round(df_2020[variable_option].sum()/len(df_2020),4), "4%")
+        col5.metric("Standar Deviasi", round(df_2020[variable_option].std(),4), "4%")
 
     if variable_option == "NDBI":
         st.write("Haloo NDBI")
