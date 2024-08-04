@@ -4,6 +4,8 @@ from streamlit_option_menu import option_menu
 import folium
 from streamlit_folium import st_folium
 
+st.set_page_config(layout="wide")
+
 # Sidebar for navigation
 with st.sidebar:
     selected = option_menu('IK DBD Dashboard Menu',
