@@ -17,7 +17,7 @@ if selected == 'About Page':
     st.title('Introduction')
     
     # background story
-    
+    st.write('Perubahan iklim merupakan fenomena global yang semakin nyata dirasakan di berbagai belahan dunia. Menurut PBB, perubahan iklim mengacu pada perubahan atau pergeseran jangka panjang dalam suhu dan pola cuaca.')
 
 if selected == 'Analisis Deskriptif Variabel':
     # page title
