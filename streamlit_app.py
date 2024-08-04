@@ -24,5 +24,5 @@ if selected == 'Analisis Deskriptif Variabel':
     st.title('Variabel-variabel Penyusun Indeks')
     
     # import data
-    dataset = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/Dataset-Olah-Extra-2022.csv', delimiter=';')
+    dataset = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/Dataset-Olah-2023.csv', delimiter=';')
     dataset
