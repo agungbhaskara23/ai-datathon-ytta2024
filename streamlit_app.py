@@ -217,8 +217,8 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
 
     col1, col2, col3 = st.columns(3)
     col1.metric("Tertinggi", 23, "-8")
-    col1.metric("Terendah", 23, "-8")
-    col1.metric("Rata-rata", 23, "-8")
+    col2.metric("Terendah", 23, "-8")
+    col3.metric("Rata-rata", 23, "-8")
 
 
     
