@@ -216,8 +216,9 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
     st.write('Hasil perolehan nilai indeks kemudian dilanjutkan dengan proses *clustering* atau pengelompokkan untuk melihat pola kedekatan atau pengelompokkan antarnilai indeks.')
 
     col1, col2, col3 = st.columns(3)
-    
-    col1.metrics =
+    col1.metric("Tertinggi", 23, "-8")
+    col1.metric("Terendah", 23, "-8")
+    col1.metric("Rata-rata", 23, "-8")
 
 
     
