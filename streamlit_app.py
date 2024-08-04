@@ -84,9 +84,9 @@ if selected == 'Learn about Data':
         data_used = "df_" + year_option
         st.markdown('### Summary Statistics')
         col1, col2, col3, col4, col5 = st.columns(5)
-        col1.metric("Rata-rata", round(df_2021[variable_option].mean(),4), round((df_2021[variable_option].mean()) - (df_2020[variable_option].mean()),4).concat("(2020)"))
-        col2.metric("Terendah", round(df_2021[variable_option].min(),4), )
-        col3.metric("Median", round(df_2021[variable_option].median(),4), )
-        col4.metric("Tertinggi", round(df_2021[variable_option].max(),4), )
-        col5.metric("Standar Deviasi", round(df_2021[variable_option].std(),4), )
+        col1.metric("Rata-rata", round(df_2021[variable_option].mean(),4), round((df_2021[variable_option].mean()) - (df_2020[variable_option].min()),4))
+        col2.metric("Terendah", round(df_2021[variable_option].min(),4), round((df_2021[variable_option].min()) - (df_2020[variable_option].mean()),4))
+        col3.metric("Median", round(df_2021[variable_option].median(),4), round((df_2021[variable_option].median()) - (df_2020[variable_option].median()),4))
+        col4.metric("Tertinggi", round(df_2021[variable_option].max(),4), round((df_2021[variable_option].max()) - (df_2020[variable_option].max()),4))
+        col5.metric("Standar Deviasi", round(df_2021[variable_option].std(),4), round((df_2021[variable_option].std()) - (df_2020[variable_option].std()),4))
     
