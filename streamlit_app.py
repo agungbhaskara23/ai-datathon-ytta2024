@@ -32,5 +32,5 @@ if selected == 'Analisis Deskriptif Variabel':
     with st.expander:
         expander_select = option_menu('Dashboard Indeks Kerentanan Penyebaran Penyakit DBD (IK-DBD)',
                            ['About Page', 'Analisis Deskriptif Variabel', 
-                            'Indeks Kerentanan Penyakit DBD (IK DBD)','Prediksi Nilai IK DBD'],
+                            'Indeks Kerentanan Penyakit DBD (IK DBD)','Prediksi Nilai IK DBD'])
     
