@@ -35,6 +35,15 @@ if selected == 'About Page':
     st.write('**1. About Page**')
     st.write('Berisi tentang informasi dashboard mencakup latar belakang, fitur yang tersedia, dan cara penggunaan dashboard')
 
+    st.write('**2. Analisis Deskriptif Variabel**')
+    st.write('Berisi tentang informasi variabel secara deskriptif yang digunakan sebagai penyusun indeks. Informasi disajikan dalam bentuk visual')
+
+    st.write('**3. Indeks Kerentanan Penyakit DBD (IK DBD)**')
+    st.write('Berisi tentang hasil penghitungan IK DBD pada wilayah di Indonesia yang disajikan dalam bentuk visualisasi peta hasil cluster. Selain itu, tersedia juga interpretasi dari nilai IK DBD dan cluster yang terbentuk')
+
+    st.write('**4. Prediksi Nilai IK DBD**')
+    st.write('Berisi tentang simulasi hasil kluster nilai IK DBD yang dapat dilakukan dengan inputasi nilai manual pada masing-masing variabel penyusun indeks')
+
 if selected == 'Analisis Deskriptif Variabel':
     # page title
     st.title('Variabel-variabel Penyusun Indeks')
