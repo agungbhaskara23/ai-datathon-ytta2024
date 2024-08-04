@@ -101,6 +101,7 @@ if selected == 'Learn about Data':
         col4.metric("Tertinggi", round(df_2022[variable_option].max(),4), round((df_2022[variable_option].max()) - (df_2021[variable_option].max()),4))
         col5.metric("Standar Deviasi", round(df_2022[variable_option].std(),4), round((df_2022[variable_option].std()) - (df_2021[variable_option].std()),4))
 
+        st.write(""
         st.write("### Mapping of ",variable_option, " Areas in Pulau Jawa (", year_option, ")")
         json1 = f"data/shp_java_kabkota.geojson"
         map = folium.Map(location=[-7.244198, 109.616631], zoom_start=7, scrollWheelZoom=False, tiles='CartoDB positron')
@@ -115,12 +116,11 @@ if selected == 'Learn about Data':
                     legend_name=variable_option
         )
         choropleth.geojson.add_to(map)
-        st_map = st_folium(map, width=900, height=450) 
+        st_map = st_folium(map, width=700, height=450) 
         
         choropleth.geojson.add_child(
-            folium.features.GeoJsonTooltip(['ADM2_EN'], labels=True)
+            folium.features.GeoJsonTooltip(['ADM2_EN'], labels=False)
         )
-
     
     if year_option == "2023" and variable_option != None:
         
