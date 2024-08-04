@@ -103,7 +103,7 @@ if selected == 'Learn about Data':
 
         st.write("### Mapping of ",variable_option, " Areas in Pulau Jawa (", year_option, ")")
         json1 = f"data/shp_java_kabkota.geojson"
-        map = folium.Map(location=[-7.244198, 109.616631], zoom_start=8, scrollWheelZoom=False, tiles='CartoDB positron')
+        map = folium.Map(location=[-7.244198, 109.616631], zoom_start=7, scrollWheelZoom=False, tiles='CartoDB positron')
         choropleth = folium.Choropleth(
                     geo_data=json1,
                     data=df_2022,
@@ -115,7 +115,7 @@ if selected == 'Learn about Data':
                     legend_name=variable_option
         )
         choropleth.geojson.add_to(map)
-        st_map = st_folium(map, width=700, height=450)
+        st_map = st_folium(map, width=900, height=450)
 
     
     # choropleth.geojson.add_child(
