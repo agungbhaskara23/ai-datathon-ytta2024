@@ -4,7 +4,7 @@ from streamlit_option_menu import option_menu
 
 # Sidebar for navigation
 with st.sidebar:
-    selected = option_menu('Menu Dashboard IK DBD)',
+    selected = option_menu('IK DBD Dashboard Menu',
                            ['About', 'Learn about Data', 
                             'Indeks Kerentanan Penyakit DBD (IK DBD)','Prediksi Nilai IK DBD'],
                            menu_icon='hospital',
