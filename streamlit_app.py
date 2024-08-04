@@ -230,6 +230,38 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
             legend='bottom', 
             use_container_width=True)
 
+# IK DBD
+if selected == 'Prediksi Nilai IK DBD':
+    # page title
+    st.title('Prediksi Nilai IK DBD')
+
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        ndbi_value = st.text_input('NDBI Index Value')
+    with col2:
+        ndvi_value = st.text_input('NDVI Index Value')
+    with col3:
+        ndwi_value = st.text_input('NDWI Index Value')
+    with col4:
+        co2_value = st.text_input('CO2 Value')
+
+    with col1:
+        co2_value = st.text_input('CO2 Value')
+    with col2:
+        co_value = st.text_input('CO Value')
+    with col3:
+        curah_hujan = st.text_input('Curah Hujan (mm/day)')
+    with col4:
+        suhu = st.text_input('Suhu (C)')     
+
+    with col1:
+        kelembaban = st.text_input('Kelembaban (%)')
+    with col2:
+        kep_pend = st.text_input('Kepadatan penduduk (jiwa/km2)')
+    with col3:
+        persen_miskin = st.text_input('Persentase penduduk miskin (%)')
+    with col4:
+        rasio_dokter = st.text_input('Rasio dokter (per 1.000 penduduk)')
 
     
     
