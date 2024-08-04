@@ -29,7 +29,7 @@ if selected == 'About Page':
              'infeksi DBD di setiap wilayah sebagai upaya estimasi kewaspadaan pemerintah dan masyarakat terhadap DBD. Namun demikian, pengukuran tingkat kerentanan terhadap DBD saat ini masih jarang dilakukan, terlebih di wilayah Indonesia. Pemanfaatan kecerdasan buatan (*artificial intelegence*/AI) '
              'yang terus berkembang dapat dimanfaatkan sebagai salah satu metode inovatif dalam menyelesaikan masalah, tak terkecuali dalam upaya pencegahan dan penanggulangan DBD.')
 
-    st.title('What's Inside?')
+    st.title("What's Inside?")
     st.write('Dalam dashboard ini tersedia empat menu utama, yaitu: ')
     
 if selected == 'Analisis Deskriptif Variabel':
