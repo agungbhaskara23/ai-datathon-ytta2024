@@ -101,15 +101,16 @@ if selected == 'Learn about Data':
         col4.metric("Tertinggi", round(df_2022[variable_option].max(),4), round((df_2022[variable_option].max()) - (df_2021[variable_option].max()),4))
         col5.metric("Standar Deviasi", round(df_2022[variable_option].std(),4), round((df_2022[variable_option].std()) - (df_2021[variable_option].std()),4))
 
+        st.markdown('### Mapping of ', variable option, 'in ', year_option)
         json1 = f"data/shp_java_kabkota.geojson"
-        map = folium.Map(location=[-7.244198, 109.616631], zoom_start=10, scrollWheelZoom=False, tiles='CartoDB positron')
+        map = folium.Map(location=[-7.244198, 109.616631], zoom_start=6, scrollWheelZoom=False, tiles='CartoDB positron')
         choropleth = folium.Choropleth(
                     geo_data=json1,
                     data=df_2022,
                     columns=('KAB/KOT', variable_option),
                     key_on='feature.properties.ADM2_EN',
                     line_opacity=0.8,
-                    fill_opacity=1,
+                    fill_opacity=0.8,
                     highlight=True,
                     legend_name=variable_option
         )
