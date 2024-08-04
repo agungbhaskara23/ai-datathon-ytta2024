@@ -18,3 +18,8 @@ if selected == 'About Page':
     
     #
 
+if selected == 'Analisis Deskriptif Variabel':
+    # page title
+    st.title('Variabel-variabel Penyusun Indeks')
+    
+    #
