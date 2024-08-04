@@ -120,12 +120,8 @@ if selected == 'Learn about Data':
         choropleth.geojson.add_to(map)
         st_map = st_folium(map, height=550) 
 
-        tooltip = folium.features.GeoJson(json1, name="ADM2_EN", popup=folium.features.GeoJsonPop(field=["ADM2_EN"]))
-        tooltip.geojson.add_to(map)
-        
-        # choropleth.geojson.add_child(
-        #     folium.features.GeoJsonTooltip(['ADM2_EN'], labels=False)
-        # )
+        # tooltip = folium.features.GeoJson(json1, name="ADM2_EN", popup=folium.features.GeoJsonPop(field=["ADM2_EN"]))
+        # tooltip.geojson.add_to(map)
     
     if year_option == "2023" and variable_option != None:
         
@@ -154,9 +150,7 @@ if selected == 'Learn about Data':
     #         state_name = feature['properties']['name']
     #         feature['properties']['population'] = 'Population: ' + '{:,}'.format(df_indexed.loc[state_name, 'State Pop'][0]) if state_name in list(df_indexed.index) else ''
     #         feature['properties']['per_100k'] = 'Reports/100K Population: ' + str(round(df_indexed.loc[state_name, 'Reports per 100K-F&O together'][0])) if state_name in list(df_indexed.index) else ''
-    
-
-    
+        
     #     state_name = ''
     #     if st_map['last_active_drawing']:
     #         state_name = st_map['last_active_drawing']['properties']['name']
