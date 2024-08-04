@@ -245,6 +245,7 @@ if selected == 'Prediksi Nilai IK DBD':
     with col4:
         co2_value = st.text_input('CO2 Value')
 
+    st.write("")
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         co_value = st.text_input('CO Value')
@@ -254,7 +255,8 @@ if selected == 'Prediksi Nilai IK DBD':
         suhu = st.text_input('Suhu (C)')     
     with col4:
         kelembaban = st.text_input('Kelembaban (%)')
-        
+
+    st.write("")
     col1, col2, col3 = st.columns(3)
     with col1:
         kep_pend = st.text_input('Kepadatan penduduk (jiwa/km2)')
