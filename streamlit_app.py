@@ -12,7 +12,7 @@ with st.sidebar:
                            default_index=0)
 
 # About Page
-if selected == 'About Page':
+if selected == 'About':
     # page title
     st.title('Welcome to Dashboard IK DBD!')
     
@@ -44,7 +44,7 @@ if selected == 'About Page':
     st.title("How to Use it?")
     st.write('Panduan atau tutorial penggunaan dashboard ini dapat dilihat pada video berikut.')
     
-if selected == 'Analisis Deskriptif Variabel':
+if selected == 'Learn about Data':
     # page title
     st.title('Variabel-variabel Penyusun Indeks')
     
