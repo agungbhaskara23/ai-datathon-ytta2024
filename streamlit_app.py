@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from streamlit_option_menu import option_menu
 import folium
-from streamlit_folium import st_folium
+from streamlit_folium import folium_static
 
 st.set_page_config(layout="wide")
 
@@ -118,7 +118,7 @@ if selected == 'Learn about Data':
                     legend_name=variable_option
         )
         choropleth.geojson.add_to(map)
-        st_map = st_folium(map, width=1920, height=550) 
+        st_map = folium_static(map, width=1920, height=550) 
 
         # tooltip = folium.features.GeoJson(json1, name="ADM2_EN", popup=folium.features.GeoJsonPop(field=["ADM2_EN"]))
         # tooltip.geojson.add_to(map)
