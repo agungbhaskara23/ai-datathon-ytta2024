@@ -3,6 +3,7 @@ import pandas as pd
 from streamlit_option_menu import option_menu
 import folium
 from streamlit_folium import st_folium
+import plost
 
 st.set_page_config(layout="wide")
 
@@ -215,10 +216,19 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
             '(IK DBD) dibangun dengan menggunakan dataset pada tahun 2020, 2021, dan 2023. Bobot dihitung dengan menggunakan metode PCA')
     st.write('Hasil perolehan nilai indeks kemudian dilanjutkan dengan proses *clustering* atau pengelompokkan untuk melihat pola kedekatan atau pengelompokkan antarnilai indeks.')
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
     col1.metric("Tertinggi", 23, "-8")
     col2.metric("Terendah", 23, "-8")
     col3.metric("Rata-rata", 23, "-8")
+
+    with col4:
+        st.markdown('### Cluster Nilai IK DBD')
+        plost.donut_chart(
+            data=stocks,
+            theta=donut_theta,
+            color='company',
+            legend='bottom', 
+            use_container_width=True)
 
 
     
