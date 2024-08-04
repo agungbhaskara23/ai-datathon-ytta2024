@@ -191,14 +191,34 @@ if selected == 'Learn about Data':
         choropleth.geojson.add_to(map)
         st_map = st_folium(map, width=1500, height=550) 
    
-    if variable_option == "NDVI":
+    if variable_option == "NDVI" and year_option != None:
         st.write("### Deskripsi Data") 
-        st.write("NDVI merupakan indeks yang mampu memetakan vegetasi di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDVI tinggi**, maka terdapat '
+        st.write("NDVI merupakan indeks dari cita satelit yang mampu memetakan daerah vegetasi di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDVI tinggi**, maka terdapat '
         'banyak vegetasi lebat sehingga menjadi habitat yg baik untuk nyamuk.")
 
-    if variable_option == "NDBI":
+    if variable_option == "NDBI" and year_option != None:
         st.write("### Deskripsi Data") 
-        st.write("NDVI merupakan indeks yang mampu memetakan vegetasi di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDVI tinggi**, maka terdapat '
-        'banyak vegetasi lebat sehingga menjadi habitat yg baik untuk nyamuk.")
+        st.write("NDBI merupakan indeks dari citra satelit yang mampu memetakan daerah lahan terbangun di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDBI tinggi**, maka terdapat '
+        'banyak pemukiman yang mengakibatkan penduduk makin padat dan potensi penyebaran nyamuk DBD makin tinggi")
+
+    if variable_option == "NDWI" and year_option != None:
+        st.write("### Deskripsi Data") 
+        st.write("NDWI merupakan indeks dari citra satelit yang mampu memetakan daerah perairan di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDBI tinggi**, maka terdapat '
+        'cukup banyak wilayah yang menjadi genangan air sebagai tempat perkembangbiak nyamuk")
+
+# IK DBD
+if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
+    # page title
+    st.title('Indeks Kerentanan DBD / IK DBD')
+
+    st.write('Dalam dashboard ini, penghitungan IK DBD dilakukan hanya pada tahun 2022 saja dengan menyesuaikan ketersediaan data kasus penderita DBD oleh Kementerian Kesehatan. Model penghitungan indeks kerentanan DBD '
+            '(IK DBD) dibangun dengan menggunakan dataset pada tahun 2020, 2021, dan 2023'. Bobot dihitung dengan menggunakan metode PCA')
+    st.write('Hasil perolehan nilai indeks kemudian dilanjutkan dengan proses *clustering* atau pengelompokkan untuk melihat pola kedekatan atau pengelompokkan antarnilai indeks.')
+
+    col1, col2, col3 = st.columns(3)
+    
+    col1.metrics =
+
+
     
     
