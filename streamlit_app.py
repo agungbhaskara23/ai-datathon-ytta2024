@@ -62,7 +62,7 @@ if selected == 'Learn about Data':
         "Option",("2020", "2021", "2022", "2023"), index=None, placeholder="Pilih tahun", label_visibility="hidden"
     )
 
-    if variable option == None || year_option == None:
+    if variable_option == None || year_option == None:
         # Empty, need to choose 2 choices
     
     if variable_option == "NDVI":
