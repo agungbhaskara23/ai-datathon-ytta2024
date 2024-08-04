@@ -33,9 +33,9 @@ if selected == 'Analisis Deskriptif Variabel':
         "",("NDVI, NDBI, NDWI, ETC"), index=None, placeholder="Pilih variabel"
     )
 
-    if variable_option = "NDVI":
+    if variable_option == "NDVI":
         st.title("Haloo NDVI")
 
-    if variable_option = "NDBI":
+    if variable_option == "NDBI":
         st.title("Haloo NDBI")
     
