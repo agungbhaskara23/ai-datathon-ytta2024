@@ -63,6 +63,7 @@ if selected == 'Learn about Data':
     )
 
     if variable_option == None or year_option == None:
+        st.write("")
     
     if variable_option == "NDVI":
         data_used = "df_" + year_option
