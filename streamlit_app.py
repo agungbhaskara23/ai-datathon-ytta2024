@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 # Set page configuration
 st.set_page_config(page_title="Dashboard IK-DBD",
@@ -25,17 +26,17 @@ if selected == 'About Page':
 
     #
 
-# Analisis Deskriptif Variabel
-if selected == 'Analisis Deskriptif Variabel':
+# # Analisis Deskriptif Variabel
+# if selected == 'Analisis Deskriptif Variabel':
 
-  # page title
-
-
-if selected == 'Indeks Kerentanan Penyakit DBD (IK-DBD)':
-
-  # page title
+#   # page title
 
 
-if selected == 'Prediksi Nilai IK-DBDl':
+# if selected == 'Indeks Kerentanan Penyakit DBD (IK-DBD)':
 
-  # page title
+#   # page title
+
+
+# if selected == 'Prediksi Nilai IK-DBDl':
+
+#   # page title
