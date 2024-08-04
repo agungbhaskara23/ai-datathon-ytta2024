@@ -115,12 +115,11 @@ if selected == 'Learn about Data':
                     legend_name=variable_option
         )
         choropleth.geojson.add_to(map)
-        st_map = st_folium(map, width=900, height=450)
-
-    
-    # choropleth.geojson.add_child(
-        #     folium.features.GeoJsonTooltip(['name', 'population', 'per_100k'], labels=False)
-        # )
+        st_map = st_folium(map, width=900, height=450) 
+        
+        choropleth.geojson.add_child(
+            folium.features.GeoJsonTooltip(['ADM2_EN'], labels=True)
+        )
 
     
     if year_option == "2023" and variable_option != None:
