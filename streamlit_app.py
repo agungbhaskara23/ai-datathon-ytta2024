@@ -226,7 +226,6 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
         st.markdown('### Cluster Nilai IK DBD')
         plost.donut_chart(
             data=df_2022,
-            theta=donut_theta,
             color='company',
             legend='bottom', 
             use_container_width=True)
