@@ -73,12 +73,20 @@ if selected == 'Learn about Data':
         data_used = "df_" + year_option
         st.markdown('### Summary Statistics')
         col1, col2, col3, col4, col5 = st.columns(5)
-        col1.metric("Rata-rata", round(df_2020[variable_option].mean(),4), "1.2 °F")
-        col2.metric("Terendah", round(df_2020[variable_option].min(),4), "-8%")
-        col3.metric("Median", round(df_2020[variable_option].median(),4), "4%")
-        col4.metric("Tertinggi", round(df_2020[variable_option].max(),4), "-8%")
-        col5.metric("Standar Deviasi", round(df_2020[variable_option].std(),4), "4%")
+        col1.metric("Rata-rata", round(df_2020[variable_option].mean(),4))
+        col2.metric("Terendah", round(df_2020[variable_option].min(),4))
+        col3.metric("Median", round(df_2020[variable_option].median(),4))
+        col4.metric("Tertinggi", round(df_2020[variable_option].max(),4))
+        col5.metric("Standar Deviasi", round(df_2020[variable_option].std(),4))
 
-    if variable_option == "NDBI":
-        st.write("Haloo NDBI")
+    if year_option == "2021" and variable_option != None:
+        
+        data_used = "df_" + year_option
+        st.markdown('### Summary Statistics')
+        col1, col2, col3, col4, col5 = st.columns(5)
+        col1.metric("Rata-rata", round(df_2021[variable_option].mean(),4), 0.5)
+        col2.metric("Terendah", round(df_2021[variable_option].min(),4), )
+        col3.metric("Median", round(df_2021[variable_option].median(),4), )
+        col4.metric("Tertinggi", round(df_2021[variable_option].max(),4), )
+        col5.metric("Standar Deviasi", round(df_2021[variable_option].std(),4), )
     
