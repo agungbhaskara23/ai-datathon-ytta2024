@@ -118,7 +118,7 @@ if selected == 'Learn about Data':
                     legend_name=variable_option
         )
         choropleth.geojson.add_to(map)
-        st_map = st_folium(map, width=1400, height=450) 
+        st_map = st_folium(map, height=550) 
 
         tooltip = folium.features.GeoJson(json1, name="ADM2_EN", popup=folium.features.GeoJsonPop(field=["ADM2_EN"]))
         tooltip.geojson.add_to(map)
