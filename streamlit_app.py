@@ -26,20 +26,16 @@ if selected == 'About Page':
     #
 
 # Analisis Deskriptif Variabel
-else if selected == 'Analisis Deskriptif Variabel':
+if selected == 'Analisis Deskriptif Variabel':
 
   # page title
 
 
-else if selected == 'Indeks Kerentanan Penyakit DBD (IK-DBD)':
+if selected == 'Indeks Kerentanan Penyakit DBD (IK-DBD)':
 
   # page title
 
 
-else if selected == 'Prediksi Nilai IK-DBDl':
+if selected == 'Prediksi Nilai IK-DBDl':
 
   # page title
-
-st.title('🎈 App Name')
-
-st.write('Hello world!')
