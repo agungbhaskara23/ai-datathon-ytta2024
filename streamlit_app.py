@@ -59,7 +59,7 @@ if selected == 'Learn about Data':
         "Option",("NDVI", "NDBI", "NDWI", "CO2", "CO", "Curah Hujan", "Suhu", "Kelembaban", "Kepadatan Penduduk", "Persentase Penduduk Miskin", "Rasio Dokter"), index=None, placeholder="Pilih variabel", label_visibility="hidden"
     )
     year_option = col2.selectbox(
-        "Option",("2020", "2021", "2022", "2023"), index=None, placeholder="Pilih tahun", label_visibility="hidden")
+        "Option",("2020", "2021", "2022", "2023"), index=None, placeholder="Pilih tahun", label_visibility="hidden"
     )
 
     if variable_option == "NDVI":
