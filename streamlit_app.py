@@ -4,7 +4,7 @@ from streamlit_option_menu import option_menu
 
 st.title('Dashboard Indeks Kerentanan Penyakit Demam Berdarah Dengue (DBD)')
 
-# sidebar for navigation
+# Sidebar for navigation
 with st.sidebar:
     selected = option_menu('Dashboard Indeks Kerentanan Penyebaran Penyakit DBD (IK-DBD)',
                            ['About Page', 'Analisis Deskriptif Variabel', 
@@ -13,4 +13,10 @@ with st.sidebar:
                            icons=['house', 'gear', 'person', 'app'],
                            default_index=0)
 
+# About Page
+if selected == 'About Page':
+    # page title
+    st.title('Introduction')
+    
+    #
 
