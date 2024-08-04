@@ -5,7 +5,7 @@ from streamlit_option_menu import option_menu
 # Sidebar for navigation
 with st.sidebar:
     selected = option_menu('Menu Dashboard IK DBD)',
-                           ['About Page', 'Analisis Deskriptif Variabel', 
+                           ['About', 'Learn about Data', 
                             'Indeks Kerentanan Penyakit DBD (IK DBD)','Prediksi Nilai IK DBD'],
                            menu_icon='hospital',
                            icons=['house', 'gear', 'person', 'app'],
@@ -29,11 +29,11 @@ if selected == 'About Page':
     st.title("What's Inside?")
     st.write('Tersedia empat menu utama dalam dashboard ini, yaitu: ')
 
-    st.write('**1. About Page**')
+    st.write('**1. About**')
     st.write('Informasi dashboard mencakup latar belakang, fitur yang tersedia, dan cara penggunaan dashboard')
 
     st.write('**2. Learn about Data**')
-    st.write('Informasi variabel secara deskriptif yang digunakan sebagai penyusun indeks dan disajikan dalam sejumlah bentuk visual')
+    st.write('Informasi variabel yang digunakan sebagai penyusun indeks secara deskriptif dan disajikan dalam sejumlah bentuk visual')
 
     st.write('**3. Indeks Kerentanan Penyakit DBD (IK DBD)**')
     st.write('Hasil penghitungan IK DBD pada wilayah Pulau Jawa, Indonesia pada tahun tertentu (2022). Hasil disajikan dalam berbagai visualisasi, seperti grafik dan peta hasil cluster. Interpretasi dari nilai IK DBD pada masing-masing cluster juga tersaji dalam bagian ini')
@@ -42,7 +42,7 @@ if selected == 'About Page':
     st.write('Simulasi nilai IK DBD dan kelas cluster yang diperoleh ketika dilakukan inputasi nilai seecara manual pada masing-masing variabel penyusun indeks')
 
     st.title("How to Use it?")
-    st.write('Berikut ditampilkan tutorial penggunaan dashboard ini ')
+    st.write('Panduan atau tutorial penggunaan dashboard ini dapat dilihat pada video berikut.')
     
 if selected == 'Analisis Deskriptif Variabel':
     # page title
