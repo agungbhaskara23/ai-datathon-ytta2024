@@ -64,6 +64,7 @@ if selected == 'Learn about Data':
 
     if variable_option == None or year_option == None:
         # Empty, need to choose 2 choices
+
     
     if variable_option == "NDVI":
         data_used = "df_" + year_option
