@@ -27,7 +27,7 @@ if selected == 'About Page':
              'Pemanfaatan kecerdasan buatan (*artificial intelegence*/AI) yang terus berkembang dapat dijadikan sebagai salah satu metode inovatif dalam menyelesaikan masalah, tak terkecuali dalam upaya pencegahan dan penanggulangan DBD.')
 
     st.title("What's Inside?")
-    st.write(Tersedia empat menu utama dalam dashboard ini, yaitu: ')
+    st.write('Tersedia empat menu utama dalam dashboard ini, yaitu: ')
 
     st.write('**1. About Page**')
     st.write('## Informasi dashboard mencakup latar belakang, fitur yang tersedia, dan cara penggunaan dashboard')
