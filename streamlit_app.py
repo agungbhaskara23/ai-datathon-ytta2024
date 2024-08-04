@@ -99,6 +99,21 @@ if selected == 'Learn about Data':
         col3.metric("Median", round(df_2022[variable_option].median(),4), round((df_2022[variable_option].median()) - (df_2021[variable_option].median()),4))
         col4.metric("Tertinggi", round(df_2022[variable_option].max(),4), round((df_2022[variable_option].max()) - (df_2021[variable_option].max()),4))
         col5.metric("Standar Deviasi", round(df_2022[variable_option].std(),4), round((df_2022[variable_option].std()) - (df_2021[variable_option].std()),4))
+
+        map = folium.Map(location=[-7.244198, 109.616631], zoom_start=4, scrollWheelZoom=False, tiles='CartoDB positron')
+        choropleth = folium.Choropleth(
+                    geo_data='data/shp_java_kabkota.geojson',
+                    data=df_2022,
+                    columns=('KAB/KOT', variables_option),
+                    key_on='feature.properties.name',
+                    line_opacity=0.8,
+                    highlight=True
+        )
+        choropleth.geojson.add_to(map)
+        # choropleth.geojson.add_child(
+        #     folium.features.GeoJsonTooltip(['name', 'population', 'per_100k'], labels=False)
+        # )
+        st_map = st_folium(map, width=700, height=450)
     
     if year_option == "2023" and variable_option != None:
         
@@ -111,20 +126,7 @@ if selected == 'Learn about Data':
         col4.metric("Tertinggi", round(df_2023[variable_option].max(),4), round((df_2023[variable_option].max()) - (df_2022[variable_option].max()),4))
         col5.metric("Standar Deviasi", round(df_2023[variable_option].std(),4), round((df_2023[variable_option].std()) - (df_2022[variable_option].std()),4))
 
-        map = folium.Map(location=[-7.244198, 109.616631], zoom_start=4, scrollWheelZoom=False, tiles='CartoDB positron')
-        choropleth = folium.Choropleth(
-                    geo_data='data/shp_java_kabkota.geojson',
-                    data=df_2023,
-                    columns=('KAB/KOT', variables_option),
-                    key_on='feature.properties.name',
-                    line_opacity=0.8,
-                    highlight=True
-        )
-        choropleth.geojson.add_to(map)
-        # choropleth.geojson.add_child(
-        #     folium.features.GeoJsonTooltip(['name', 'population', 'per_100k'], labels=False)
-        # )
-        st_map = st_folium(map, width=700, height=450)
+
     
     
     # def display_map(df, year, quarter):
