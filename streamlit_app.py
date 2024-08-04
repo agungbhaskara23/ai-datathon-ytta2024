@@ -68,7 +68,7 @@ if selected == 'Learn about Data':
     if year_option == None:
         st.write("")
     
-    if year_option == "2020":
+    if year_option == "2020" and variable_option <> None:
         
         data_used = "df_" + year_option
         st.markdown('### Summary Statistics')
