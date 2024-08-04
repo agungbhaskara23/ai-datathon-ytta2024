@@ -221,6 +221,7 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
     col2.metric("Terendah", 23, "-8")
     col3.metric("Rata-rata", 23, "-8")
 
+    df_2022 = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/Dataset-Olah-2022.csv', delimiter=';', decimal=',', thousands='.')
     with col4:
         st.markdown('### Cluster Nilai IK DBD')
         plost.donut_chart(
