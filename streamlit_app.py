@@ -104,7 +104,7 @@ if selected == 'Learn about Data':
         choropleth = folium.Choropleth(
                     geo_data='data/shp_java_kabkota.geojson',
                     data=df_2022,
-                    columns=('KAB/KOT', variables_option),
+                    columns=('KAB/KOT', variable_option),
                     key_on='feature.properties.name',
                     line_opacity=0.8,
                     highlight=True
