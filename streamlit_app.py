@@ -109,3 +109,35 @@ if selected == 'Learn about Data':
         col3.metric("Median", round(df_2023[variable_option].median(),4), round((df_2023[variable_option].median()) - (df_2022[variable_option].median()),4))
         col4.metric("Tertinggi", round(df_2023[variable_option].max(),4), round((df_2023[variable_option].max()) - (df_2022[variable_option].max()),4))
         col5.metric("Standar Deviasi", round(df_2023[variable_option].std(),4), round((df_2023[variable_option].std()) - (df_2022[variable_option].std()),4))
+
+    def display_map(df, year, quarter):
+        df = df[(df['Year'] == year) & (df['Quarter'] == quarter)]
+    
+        map = folium.Map(location=[38, -96.5], zoom_start=4, scrollWheelZoom=False, tiles='CartoDB positron')
+        
+        choropleth = folium.Choropleth(
+            geo_data='data/us-state-boundaries.geojson',
+            data=df,
+            columns=('State Name', 'State Total Reports Quarter'),
+            key_on='feature.properties.name',
+            line_opacity=0.8,
+            highlight=True
+        )
+        choropleth.geojson.add_to(map)
+    
+        df_indexed = df.set_index('State Name')
+        for feature in choropleth.geojson.data['features']:
+            state_name = feature['properties']['name']
+            feature['properties']['population'] = 'Population: ' + '{:,}'.format(df_indexed.loc[state_name, 'State Pop'][0]) if state_name in list(df_indexed.index) else ''
+            feature['properties']['per_100k'] = 'Reports/100K Population: ' + str(round(df_indexed.loc[state_name, 'Reports per 100K-F&O together'][0])) if state_name in list(df_indexed.index) else ''
+    
+        choropleth.geojson.add_child(
+            folium.features.GeoJsonTooltip(['name', 'population', 'per_100k'], labels=False)
+        )
+        
+        st_map = st_folium(map, width=700, height=450)
+    
+        state_name = ''
+        if st_map['last_active_drawing']:
+            state_name = st_map['last_active_drawing']['properties']['name']
+        return state_name
