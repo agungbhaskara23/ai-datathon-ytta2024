@@ -46,7 +46,7 @@ if selected == 'About':
     
 if selected == 'Learn about Data':
     # page title
-    st.title('Variabel-variabel Penyusun Indeks')
+    st.title('Learn More about Index Data')
     
     # import data
     df_2020 = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/Dataset-Olah-2020.csv', delimiter=';', decimal=',', thousands='.')
@@ -54,8 +54,12 @@ if selected == 'Learn about Data':
     df_2022 = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/Dataset-Olah-2022.csv', delimiter=';', decimal=',', thousands='.')
     df_2023 = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/Dataset-Olah-2023.csv', delimiter=';', decimal=',', thousands='.')
 
-    variable_option = st.selectbox(
+    col1, col2 = st.columns(2)
+    variable_option = col1.selectbox(
         "Option",("NDVI", "NDBI", "NDWI", "CO2", "CO", "Curah Hujan", "Suhu", "Kelembaban", "Kepadatan Penduduk", "Persentase Penduduk Miskin", "Rasio Dokter"), index=None, placeholder="Pilih variabel", label_visibility="hidden"
+    )
+    year_option = col2.selectbox(
+        "Option",("2020", "2021", "2022", "2023", index=None, placeholder="Pilih tahun", label_visibility="hidden"
     )
 
     if variable_option == "NDVI":
