@@ -30,7 +30,7 @@ if selected == 'Analisis Deskriptif Variabel':
     df_2023 = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/Dataset-Olah-2023.csv', delimiter=';', decimal=',', thousands='.')
 
     variable_option = st.selectbox(
-        "",("NDVI, NDBI, NDWI, ETC"), index=None, placeholder="Pilih variabel"
+        "Option",("NDVI", "NDBI", "NDWI", "ETC"), index=None, placeholder="Pilih variabel", label_visibility="hidden"
     )
 
     if variable_option == "NDVI":
