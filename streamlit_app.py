@@ -62,7 +62,10 @@ if selected == 'Learn about Data':
         "Option",("2020", "2021", "2022", "2023"), index=None, placeholder="Pilih tahun", label_visibility="hidden"
     )
 
-    if variable_option == None or year_option == None:
+    if variable_option == None
+        st.write("")
+
+    if yeare_option == None
         st.write("")
     
     if year_option == "2020":
