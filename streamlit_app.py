@@ -29,8 +29,13 @@ if selected == 'Analisis Deskriptif Variabel':
     df_2022 = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/Dataset-Olah-2022.csv', delimiter=';', decimal=',', thousands='.')
     df_2023 = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/Dataset-Olah-2023.csv', delimiter=';', decimal=',', thousands='.')
 
-    with st.expander:
-        expander_select = option_menu('Dashboard Indeks Kerentanan Penyebaran Penyakit DBD (IK-DBD)',
-                           ['About Page', 'Analisis Deskriptif Variabel', 
-                            'Indeks Kerentanan Penyakit DBD (IK DBD)','Prediksi Nilai IK DBD'])
+    variable_option = st.selectbox(
+        "",("NDVI, NDBI, NDWI, ETC"), index=None, placeholder="Pilih variabel"
+    )
+
+    if variable_option = "NDVI":
+        st.title('Haloo NDVI")
+
+    if variable_option = "NDBI":
+        st.title('Haloo NDBI")
     
