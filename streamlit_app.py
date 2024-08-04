@@ -65,7 +65,7 @@ if selected == 'Learn about Data':
     if variable_option == None:
         st.write("")
 
-    if yeare_option == None:
+    if year_option == None:
         st.write("")
     
     if year_option == "2020":
