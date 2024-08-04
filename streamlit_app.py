@@ -17,11 +17,17 @@ if selected == 'About Page':
     st.title('Introduction')
     
     # background story
-    st.write('Perubahan iklim merupakan fenomena global yang semakin nyata dirasakan di berbagai belahan dunia. Menurut PBB, perubahan iklim mengacu pada perubahan atau pergeseran jangka panjang dalam suhu dan pola cuaca. '
+    st.write('Perubahan iklim merupakan fenomena global yang semakin nyata dirasakan di berbagai belahan dunia. Menurut PBB, **perubahan iklim mengacu pada perubahan atau pergeseran jangka panjang dalam suhu dan pola cuaca**. '
     'Perubahan iklim memiliki sejumlah dampak, seperti menurunnya kemampuan untuk menanam pangan, kesulitan pada sektor perumahan, keselamatan dan pekerjaan, hingga perubahan iklim mampu mempengaruhi kesehatan manusia (Susilawati, 2021). ' 
-    'Dalam aspek kesehatan, perubahan iklim dapat meningkatkan risiko terhadap maraknya penyebaran penyakit menular. Salah satu penyakit menular tersebut adalah penyakit demam berdarah dengue (DBD) yang menular melalui vektor/media tertentu.')
+    'Dalam aspek kesehatan, perubahan iklim dapat meningkatkan risiko terhadap maraknya penyebaran penyakit menular. Salah satu penyakit menular tersebut adalah penyakit demam berdarah *dengue* (DBD) yang menular melalui vektor/media tertentu.')
 
-    st.write('DBD merupakan penyakit menular yang disebabkan oleh virus dengue yang ditularkan melalui gigitan nyamuk Aedes aegypti dan Aedes albopictus (Soedarto, 2018). Pada tahun 2024, World Health Organization atau WHO memperkirakan setengah dari populasi dunia berisiko terkena virus dengue, dengan perkiraan 100 - 400 juta infeksi setiap tahun. Sejalan dengan hal tersebut, penyakit DBD masih menjadi salah satu masalah utama dari kesehatan masyarakat di Indonesia (Kusumawardani & Achmadi, 2012). Pada tahun 2010, Indonesia pernah berada pada urutan kedua dengan jumlah kasus DBD terbanyak di Asia (Bhatt et al., 2013). Disamping itu, Kementerian Kesehatan RI (2021) melaporkan bahwa lebih dari 80% kabupaten/kota di setiap provinsinya terindikasi penyakit DBD.')
+    st.write('DBD merupakan penyakit menular yang disebabkan oleh virus *dengue* yang ditularkan melalui gigitan nyamuk *aedes aegypti* dan *aedes albopictus* (Soedarto, 2018). Pada tahun 2024, *World Health Organization* atau WHO memperkirakan setengah '
+             'dari populasi dunia berisiko terkena virus *dengue*, dengan 100 - 400 juta infeksi setiap tahun. Penyakit DBD juga masih menjadi salah satu masalah utama dari kesehatan masyarakat di Indonesia (Kusumawardani & Achmadi, 2012). Pada tahun 2010, '
+             'Indonesia pernah berada pada urutan kedua dengan jumlah kasus DBD terbanyak di Asia (Bhatt et al., 2013). Disamping itu, Kementerian Kesehatan RI (2021) melaporkan bahwa lebih dari 80% kabupaten/kota di setiap provinsinya terindikasi penyakit DBD.')
+
+    st.write('Peningkatan akan ketahanan atau pengurangan kerentanan penyakit DBD dapat menjadi upaya mengurangi dampak infeksi virus *dengue* di semua tingkatan (Hagenlocher et al., 2013; Hanifah Septiani et al., 2021). Oleh karena itu, penting untuk mengukur tingkat kerentanan '
+             'infeksi DBD di setiap wilayah sebagai upaya estimasi kewaspadaan pemerintah dan masyarakat terhadap DBD. Namun demikian, pengukuran tingkat kerentanan terhadap DBD saat ini masih jarang dilakukan, terlebih di wilayah Indonesia. Pemanfaatan kecerdasan buatan (*artificial intelegence*/AI) '
+             'yang terus berkembang dapat dimanfaatkan sebagai salah satu metode inovatif dalam menyelesaikan masalah, tak terkecuali dalam upaya pencegahan dan penanggulangan DBD.')
 if selected == 'Analisis Deskriptif Variabel':
     # page title
     st.title('Variabel-variabel Penyusun Indeks')
