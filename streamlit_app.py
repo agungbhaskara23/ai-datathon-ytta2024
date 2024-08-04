@@ -17,9 +17,9 @@ if selected == 'About Page':
     st.title('Introduction')
     
     # background story
-    st.write('Perubahan iklim merupakan fenomena global yang semakin nyata dirasakan di berbagai belahan dunia. Menurut PBB, perubahan iklim mengacu pada perubahan atau pergeseran jangka panjang dalam suhu dan pola cuaca.
-    Perubahan iklim memiliki sejumlah dampak, seperti menurunnya kemampuan untuk menanam pangan, kesulitan pada sektor perumahan, keselamatan dan pekerjaan, hingga perubahan iklim mampu mempengaruhi kesehatan manusia (Susilawati, 2021). 
-    Dalam aspek kesehatan, perubahan iklim dapat meningkatkan risiko terhadap maraknya penyebaran penyakit menular. Salah satu penyakit menular tersebut adalah penyakit demam berdarah dengue (DBD) yang menular melalui vektor/media tertentu.')
+    st.write('Perubahan iklim merupakan fenomena global yang semakin nyata dirasakan di berbagai belahan dunia. Menurut PBB, perubahan iklim mengacu pada perubahan atau pergeseran jangka panjang dalam suhu dan pola cuaca.'
+    'Perubahan iklim memiliki sejumlah dampak, seperti menurunnya kemampuan untuk menanam pangan, kesulitan pada sektor perumahan, keselamatan dan pekerjaan, hingga perubahan iklim mampu mempengaruhi kesehatan manusia (Susilawati, 2021).' 
+    'Dalam aspek kesehatan, perubahan iklim dapat meningkatkan risiko terhadap maraknya penyebaran penyakit menular. Salah satu penyakit menular tersebut adalah penyakit demam berdarah dengue (DBD) yang menular melalui vektor/media tertentu.')
 
 if selected == 'Analisis Deskriptif Variabel':
     # page title
