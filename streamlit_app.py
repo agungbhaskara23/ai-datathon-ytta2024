@@ -62,14 +62,18 @@ if selected == 'Learn about Data':
         "Option",("2020", "2021", "2022", "2023"), index=None, placeholder="Pilih tahun", label_visibility="hidden"
     )
 
+    if variable option == None || year_option == None:
+        # Empty, need to choose 2 choices
+    
     if variable_option == "NDVI":
+        data_used = "df_" + year_option
         st.markdown('### Summary Statistics')
         col1, col2, col3, col4, col5 = st.columns(5)
-        col1.metric("Rata-rata", round(df_2023[variable_option].max(),4), "1.2 °F")
-        col2.metric("Terendah", round(df_2023[variable_option].min(),4), "-8%")
-        col3.metric("Median", round(df_2023[variable_option].sum()/len(df_2020),4), "4%")
-        col4.metric("Tertinggi", round(df_2023[variable_option].min(),4), "-8%")
-        col5.metric("Standar Deviasi", round(df_2023[variable_option].sum()/len(df_2020),4), "4%")
+        col1.metric("Rata-rata", round(data_used[variable_option].max(),4), "1.2 °F")
+        col2.metric("Terendah", round(data_used[variable_option].min(),4), "-8%")
+        col3.metric("Median", round(data_used[variable_option].sum()/len(data_used),4), "4%")
+        col4.metric("Tertinggi", round(data_used[variable_option].min(),4), "-8%")
+        col5.metric("Standar Deviasi", round(data_used[variable_option].sum()/len(data_used),4), "4%")
 
     if variable_option == "NDBI":
         st.write("Haloo NDBI")
