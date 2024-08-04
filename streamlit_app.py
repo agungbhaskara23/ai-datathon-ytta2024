@@ -119,10 +119,13 @@ if selected == 'Learn about Data':
         )
         choropleth.geojson.add_to(map)
         st_map = st_folium(map, width=1200, height=450) 
+
+        tooltip = folium.features.GeoJson(json1, name="ADM2_EN", popup=folium.features.GeoJsonPop(field=["ADM2_EN"])))
+        tooltip.geojson.add_to(map)
         
-        choropleth.geojson.add_child(
-            folium.features.GeoJsonTooltip(['ADM2_EN'], labels=False)
-        )
+        # choropleth.geojson.add_child(
+        #     folium.features.GeoJsonTooltip(['ADM2_EN'], labels=False)
+        # )
     
     if year_option == "2023" and variable_option != None:
         
