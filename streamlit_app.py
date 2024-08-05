@@ -221,9 +221,9 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
 
     df_final = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/df_final_with_cluster.csv')
     col1, col2, col3, col4 = st.columns(4)
-    col1.metric("Tertinggi", df_final['Index'].max())
-    col2.metric("Terendah", df_final['Index'].min())
-    col3.metric("Rata-rata",df_final['Index'].mean())
+    col1.metric("Rata-rata Cluster 1", df_final['Index'].max())
+    col2.metric("Rata-rata Cluster 2", df_final['Index'].min())
+    col3.metric("Rata-rata-Cluster 3",df_final['Index'].mean())
     
     # Mapping Indeks  
     import geopandas as gpd
@@ -241,7 +241,7 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
     json_merge = gdf.merge(df_cut, how="left", left_on="ADM2_EN", right_on="ADM2_EN")
 
     colormap = branca.colormap.LinearColormap(
-        vmin=json_merge["Cluster"].min(),
+        vmin=json_merge["Index"].min(),
         vmax=json_merge["Index"].max(),
         colors=["white", "lightblue", "blue"],
         caption="IK DBD",
