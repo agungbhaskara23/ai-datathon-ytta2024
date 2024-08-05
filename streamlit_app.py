@@ -369,7 +369,7 @@ if selected == 'Prediksi Nilai IK DBD':
             'rasio_dokter': rasio_dokter 
         }
         data_input = pd.DataFrame(user_input, index=[0])
-        data_input = data_input.astype(np.float64)
+        # data_input = data_input.astype(np.float64)
         data_input
 
         # Convert to numpy array for StandardScaler
