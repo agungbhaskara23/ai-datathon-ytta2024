@@ -101,7 +101,7 @@ if selected == 'Learn about Data':
                     legend_name=variable_option
         )
         choropleth.geojson.add_to(map)
-        st_map = st_folium(map, width=1500, height=550) 
+        st_map = folium_static(map, width=1100, height=550) 
 
         # tooltip = folium.features.GeoJson(json1, name="ADM2_EN", popup=folium.features.GeoJsonPop(field=["ADM2_EN"]))
         # tooltip.geojson.add_to(map)
@@ -131,7 +131,7 @@ if selected == 'Learn about Data':
                     legend_name=variable_option
         )
         choropleth.geojson.add_to(map)
-        st_map = st_folium(map, width=1500, height=550) 
+        st_map = folium_static(map, width=1100, height=550) 
 
         # tooltip = folium.features.GeoJson(json1, name="ADM2_EN", popup=folium.features.GeoJsonPop(field=["ADM2_EN"]))
         # tooltip.geojson.add_to(map)
@@ -162,7 +162,7 @@ if selected == 'Learn about Data':
                     legend_name=variable_option
         )
         choropleth.geojson.add_to(map)
-        st_map = st_folium(map, width=1500, height=550) 
+        st_map = folium_static(map, width=1100, height=550)  
 
         # tooltip = folium.features.GeoJson(json1, name="ADM2_EN", popup=folium.features.GeoJsonPop(field=["ADM2_EN"]))
         # tooltip.geojson.add_to(map)
@@ -193,7 +193,7 @@ if selected == 'Learn about Data':
                     legend_name=variable_option
         )
         choropleth.geojson.add_to(map)
-        st_map = st_folium(map, width=1500, height=550) 
+        st_map = folium_static(map, width=1100, height=550) 
    
     if variable_option == "NDVI" and year_option != None:
         st.write("### Deskripsi Data") 
@@ -330,4 +330,18 @@ if selected == 'Prediksi Nilai IK DBD':
     with col3:
         rasio_dokter = st.text_input('Rasio dokter (per 1.000 penduduk)')
 
-    
+    if st.button('Predict IK DBD Value!'):
+        user_input = [ndbi_value, ndvi_value, ndwi_value, co2_value, co_value, curah_hujan, suhu, kelembaban, kep_pend, persen_miskin, rasio_dokter]
+        user_input = [float(x) for x in user_input]
+        
+        scaler = StandardScaler()
+        input_scaled = scaler.fit_transform(user_input)
+        
+        # Calculate the index with new dataset
+        count_index = input_scaled.dot(weighted_sum)
+        
+        # Normalize the count_index to the range [0, 1]
+        min_max_scaler = MinMaxScaler()
+        count_index_2022_normalized = min_max_scaler.fit_transform(count_index_2022.reshape(-1, 1))
+        print(count_index_2022_normalized)
+
