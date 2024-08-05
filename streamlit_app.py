@@ -230,7 +230,23 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
             legend='bottom', 
             use_container_width=True)
 
-# IK DBD
+    st.write("### Cluster and Index Calculation Mapping")
+        json1 = f"data/shp_java_kabkota.geojson"
+        map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=False, tiles='CartoDB positron')
+        choropleth = folium.Choropleth(
+                    geo_data=json1,
+                    data=df_2023,
+                    columns=('KAB/KOT', variable_option),
+                    key_on='feature.properties.ADM2_EN',
+                    line_opacity=0.8,
+                    fill_opacity=0.8,
+                    highlight=True,
+                    legend_name=variable_option
+        )
+        choropleth.geojson.add_to(map)
+        st_map = st_folium(map, width=1500, height=550)
+
+# Simulasi IK DBD
 if selected == 'Prediksi Nilai IK DBD':
     # page title
     st.title('Prediksi Nilai IK DBD')
@@ -264,6 +280,3 @@ if selected == 'Prediksi Nilai IK DBD':
         persen_miskin = st.text_input('Persentase penduduk miskin (%)')
     with col3:
         rasio_dokter = st.text_input('Rasio dokter (per 1.000 penduduk)')
-
-    
-    
