@@ -220,10 +220,16 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
     st.write('Hasil perolehan nilai indeks kemudian dilanjutkan dengan proses *clustering* atau pengelompokkan untuk melihat pola kedekatan atau pengelompokkan antarnilai indeks.')
 
     df_final = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/df_final_with_cluster.csv')
-    col1, col2, col3, col4 = st.columns(4)
-    col1.metric("Rata-rata Cluster 1", df_final['Index'].max())
-    col2.metric("Rata-rata Cluster 2", df_final['Index'].min())
-    col3.metric("Rata-rata-Cluster 3",df_final['Index'].mean())
+    clust_1 = df_final[df_final['Cluster'] == 1]['Index']
+    clust_2 = df_final[df_final['Cluster'] == 2]['Index']
+    clust_3 = df_final[df_final['Cluster'] == 3]['Index']
+    col1, col2, col3, col4, col5, col6 = st.columns(6)
+    col1.metric("Rata-rata Indeks di Cluster 1", clust_1.mean())
+    col2.metric("Banyak Kab/Kota Cluster 1", len(clust_1))
+    col3.metric("Rata-rata Indeks di Cluster 2", clust_3.mean())
+    col4.metric("Banyak Kab/Kota Cluster 2", len(clust_2))
+    col5.metric("Rata-rata Indeks di Cluster 3", clust_3.mean())
+    col6.metric("Banyak Kab/Kota Cluster 3", len(clust_3))
     
     # Mapping Indeks  
     import geopandas as gpd
@@ -276,8 +282,8 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
     g = folium.GeoJson(
         json_merge,
         style_function=lambda x: {
-            "fillColor": colormap(x["properties"]["Index"])
-            if x["properties"]["Index"] is not None
+            "fillColor": colormap(x["properties"]["Cluster"])
+            if x["properties"]["Cluster"] is not None
             else "transparent",
             "color": "black",
             "fillOpacity": 0.8,
