@@ -384,7 +384,7 @@ if selected == 'Prediksi Nilai IK DBD':
         # weighted_sum = weighted_sum.T
 
         # Calculate the index with new dataset
-        count_index = input_scaled.dot(weighted_sum)
+        count_index = np.dot(weighted_sum, input_scaled)
         count_index
         
         # # Normalize the count_index to the range [0, 1]
