@@ -321,7 +321,6 @@ if selected == 'Prediksi Nilai IK DBD':
     with col4:
         kelembaban = st.text_input('Kelembaban (%)')
 
-    st.write("")
     col1, col2, col3 = st.columns(3)
     with col1:
         kep_pend = st.text_input('Kepadatan penduduk (jiwa/km2)')
@@ -330,18 +329,32 @@ if selected == 'Prediksi Nilai IK DBD':
     with col3:
         rasio_dokter = st.text_input('Rasio dokter (per 1.000 penduduk)')
 
+    st.write("")
     if st.button('Predict IK DBD Value!'):
-        user_input = [ndbi_value, ndvi_value, ndwi_value, co2_value, co_value, curah_hujan, suhu, kelembaban, kep_pend, persen_miskin, rasio_dokter]
-        user_input = [float(x) for x in user_input]
+        user_input = 
+        {
+            'ndbi_value': ndbi_value,
+            'ndvi_value': ndvi_value,
+            'ndwi_value': ndwi_value, 
+            'co2_value': co2_value,
+            'co_value': co_value, 
+            'curah_hujan': curah_hujan, 
+            'suhu': suhu, 
+            'kelembaban': kelembaban, 
+            'kep_pend': kep_pend, 
+            'persen_miskin': persen_miskin,
+            'rasio_dokter': rasio_dokter 
+        }
+        input_df = pd.DataFrame(data, index=[0])
+        input_df
         
-        scaler = StandardScaler()
-        input_scaled = scaler.fit_transform(user_input)
+        # scaler = StandardScaler()
+        # input_scaled = scaler.fit_transform(user_input)
         
-        # Calculate the index with new dataset
-        count_index = input_scaled.dot(weighted_sum)
+        # # Calculate the index with new dataset
+        # count_index = input_scaled.dot(weighted_sum)
         
-        # Normalize the count_index to the range [0, 1]
-        min_max_scaler = MinMaxScaler()
-        count_index_2022_normalized = min_max_scaler.fit_transform(count_index_2022.reshape(-1, 1))
-        print(count_index_2022_normalized)
-
+        # # Normalize the count_index to the range [0, 1]
+        # min_max_scaler = MinMaxScaler()
+        # count_index_2022_normalized = min_max_scaler.fit_transform(count_index_2022.reshape(-1, 1))
+        # print(count_index_2022_normalized)
