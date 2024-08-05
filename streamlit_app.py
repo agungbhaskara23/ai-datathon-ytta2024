@@ -231,9 +231,7 @@ if selected == 'Learn about Data':
 
     if variable_option == "Kelembaban (BMKG)" and year_option != None:
         st.write("### Deskripsi Data") 
-        st.write('Kelembaban merupakan . Dalam kaitannya dengan tingkat kerentanan DBD, ketika **curah hujan** tinggi, terdapat dua kemungkinan. Jika frekuensi hujan lebat dan terus menerus, hal ini dapat berpotensi menghilangkan tempat perkembangbiakan nyamuk. '
-        'Di sisi lain, jika frekuensi singkat, maka berpotensi menimbulkan genangan air')
-ketika **kelembaban** tinggi, maka DBD tinggi --> nyamuk semakin leluasa, lingkungan lembab membantu nyamuk berkembang biak dan meningkatkan aktivitas nyamuk. Kelembaban yang bernilai rendah mengakibatkan cairan tubuh nyamuk kering akibat terjadinya penguapan
+        st.write('Ketika **kelembaban** tinggi, maka tingkat kerentanan DBD tinggi. Hal ini disebabkan karena nyamuk semakin leluasa, lingkungan lembab membantu nyamuk berkembang biak dan meningkatkan aktivitas nyamuk. Kelembaban yang bernilai rendah mengakibatkan cairan tubuh nyamuk kering akibat terjadinya penguapan')
 
 # IK DBD
 if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
