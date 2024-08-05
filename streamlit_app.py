@@ -200,18 +200,40 @@ if selected == 'Learn about Data':
    
     if variable_option == "NDVI" and year_option != None:
         st.write("### Deskripsi Data") 
-        st.write('NDVI merupakan indeks dari cita satelit yang mampu memetakan daerah vegetasi di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDVI tinggi**, maka terdapat '
+        st.write('NDVI merupakan indeks dari cita satelit Sentinel 2 yang mampu memetakan daerah vegetasi di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDVI tinggi**, maka terdapat '
         'banyak vegetasi lebat sehingga menjadi habitat yg baik untuk nyamuk.')
 
     if variable_option == "NDBI" and year_option != None:
         st.write("### Deskripsi Data") 
-        st.write('NDBI merupakan indeks dari citra satelit yang mampu memetakan daerah lahan terbangun di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDBI tinggi**, maka terdapat '
+        st.write('NDBI merupakan indeks dari citra satelit Sentinel 2 yang mampu memetakan daerah lahan terbangun di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDBI tinggi**, maka terdapat '
         'banyak pemukiman yang mengakibatkan penduduk makin padat dan potensi penyebaran nyamuk DBD makin tinggi')
 
     if variable_option == "NDWI" and year_option != None:
         st.write("### Deskripsi Data") 
-        st.write('NDWI merupakan indeks dari citra satelit yang mampu memetakan daerah perairan di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDBI tinggi**, maka terdapat '
+        st.write('NDWI merupakan indeks dari citra satelit Sentinel 2 yang mampu memetakan daerah perairan di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDBI tinggi**, maka terdapat '
         'cukup banyak wilayah yang menjadi genangan air sebagai tempat perkembangbiak nyamuk')
+
+    if variable_option == "CO2" and year_option != None:
+        st.write("### Deskripsi Data") 
+        st.write('CO2 merupakan indeks dari citra satelit Sentinel 5P yang mampu memetakan kandungan gas CO2 di udara. Dalam hal kaitannya dengan tingkat kerentanan DBD, '
+        'kandungan CO2 pada udara bersifat atraktan yang mampu menarik nyamuk untuk berdekatan pada manusia sehingga berpotensi menularkan virus dengue ke manusia')
+
+    if variable_option == "CO" and year_option != None:
+        st.write("### Deskripsi Data") 
+        st.write('CO merupakan indeks dari citra satelit Sentinel 5P yang mampu memetakan kandungan gas karbon monoksida di udara. Dalam hal kaitannya dengan tingkat kerentanan DBD, '
+        'CO merupakan bahan kimia yang ada dalam cairan pemberantasan nyamuk (fogging). Dengan demikian, keberadaan CO yang semakin tinggi di udara menyebabkan habitat nyamuk DBD menjadi berkurang')
+
+    if variable_option == "Curah Hujan (BMKG)" and year_option != None:
+        st.write("### Deskripsi Data") 
+        st.write('Curah hujan merupakan tingkat intensitas air jatuh ke bumi dalam bentuk hujan. Data yang disediakan oleh BMKG adalah dalam bentuk harian. Pada dashboard ini, digunakan '
+        'rata rata curah hujan harian per tahun. Dalam kaitannya dengan tingkat kerentanan DBD, ketika **curah hujan** tinggi, terdapat dua kemungkinan. Jika frekuensi hujan lebat dan terus menerus, hal ini dapat berpotensi menghilangkan tempat perkembangbiakan nyamuk. '
+        'Di sisi lain, jika frekuensi singkat, maka berpotensi menimbulkan genangan air')
+
+    if variable_option == "Kelembaban (BMKG)" and year_option != None:
+        st.write("### Deskripsi Data") 
+        st.write('Kelembaban merupakan . Dalam kaitannya dengan tingkat kerentanan DBD, ketika **curah hujan** tinggi, terdapat dua kemungkinan. Jika frekuensi hujan lebat dan terus menerus, hal ini dapat berpotensi menghilangkan tempat perkembangbiakan nyamuk. '
+        'Di sisi lain, jika frekuensi singkat, maka berpotensi menimbulkan genangan air')
+ketika **kelembaban** tinggi, maka DBD tinggi --> nyamuk semakin leluasa, lingkungan lembab membantu nyamuk berkembang biak dan meningkatkan aktivitas nyamuk. Kelembaban yang bernilai rendah mengakibatkan cairan tubuh nyamuk kering akibat terjadinya penguapan
 
 # IK DBD
 if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
