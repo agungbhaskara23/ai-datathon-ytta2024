@@ -376,6 +376,7 @@ if selected == 'Prediksi Nilai IK DBD':
 
         scaler = StandardScaler()
         input_scaled = scaler.fit_transform(input_df)
+        input_scaled
         
         weighted_sum = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/weight_pca.csv')
         weighted_sum
