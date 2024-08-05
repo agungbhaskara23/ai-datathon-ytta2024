@@ -241,7 +241,6 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
                     line_opacity=0.8,
                     fill_opacity=0.8,
                     highlight=True,
-                    legend_name=variable_option
     )
     choropleth.geojson.add_to(map)
     st_map = st_folium(map, width=1500, height=550)
