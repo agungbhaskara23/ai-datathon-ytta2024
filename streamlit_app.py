@@ -344,7 +344,7 @@ if selected == 'Prediksi Nilai IK DBD':
             'persen_miskin': persen_miskin,
             'rasio_dokter': rasio_dokter 
         }
-        input_df = pd.DataFrame(data, index=[0])
+        input_df = pd.DataFrame(user_input, index=[0])
         input_df
         
         # scaler = StandardScaler()
