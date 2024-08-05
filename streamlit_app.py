@@ -380,12 +380,12 @@ if selected == 'Prediksi Nilai IK DBD':
         input_scaled = scaler.fit_transform(input_df)
         input_scaled
         
-        # weighted_sum = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/weight_pca.csv')
+        weighted_sum = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/weight_pca.csv')
         # weighted_sum = weighted_sum.T
 
-        # # Calculate the index with new dataset
-        # count_index = input_scaled.dot(weighted_sum)
-        # count_index
+        # Calculate the index with new dataset
+        count_index = input_scaled.dot(weighted_sum)
+        count_index
         
         # # Normalize the count_index to the range [0, 1]
         # min_max_scaler = MinMaxScaler()
