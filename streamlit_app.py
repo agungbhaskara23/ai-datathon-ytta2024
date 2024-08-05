@@ -218,6 +218,7 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
             '(IK DBD) dibangun dengan menggunakan dataset pada tahun 2020, 2021, dan 2023. Bobot dihitung dengan menggunakan metode PCA')
     st.write('Hasil perolehan nilai indeks kemudian dilanjutkan dengan proses *clustering* atau pengelompokkan untuk melihat pola kedekatan atau pengelompokkan antarnilai indeks.')
 
+    df_final = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/df_final_with_cluster.csv')
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("Tertinggi", df_final['Index'].max())
     col2.metric("Terendah", df_final['Index'].min())
@@ -233,7 +234,6 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
     # Convert JSON data to GeoDataFrame
     gdf = gpd.GeoDataFrame.from_features(data['features'], crs="EPSG:4326")
 
-    df_final = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/df_final_with_cluster.csv')
     df_cut = df_final.copy()
     df_cut = df_cut.iloc[:,18:20]
     df_cut['ADM2_EN'] = df_cluster['KAB/KOT']
