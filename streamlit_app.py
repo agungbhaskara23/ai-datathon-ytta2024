@@ -231,9 +231,9 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
             use_container_width=True)
 
     st.write("### Cluster and Index Calculation Mapping")
-        json1 = f"data/shp_java_kabkota.geojson"
-        map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=False, tiles='CartoDB positron')
-        choropleth = folium.Choropleth(
+    json1 = f"data/shp_java_kabkota.geojson"
+    map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=False, tiles='CartoDB positron')
+    choropleth = folium.Choropleth(
                     geo_data=json1,
                     data=df_final,
                     columns=('KAB/KOT', Index),
@@ -242,9 +242,9 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
                     fill_opacity=0.8,
                     highlight=True,
                     legend_name=variable_option
-        )
-        choropleth.geojson.add_to(map)
-        st_map = st_folium(map, width=1500, height=550)
+    )
+    choropleth.geojson.add_to(map)
+    st_map = st_folium(map, width=1500, height=550)
 
 # Simulasi IK DBD
 if selected == 'Prediksi Nilai IK DBD':
