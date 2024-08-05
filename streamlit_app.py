@@ -7,6 +7,8 @@ from streamlit_folium import folium_static
 import plost
 import branca
 import geopandas
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import StandardScaler
 
 st.set_page_config(layout="wide")
 
