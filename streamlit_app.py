@@ -240,10 +240,11 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
     df_cut['ADM2_EN'] = df_final['KAB/KOT']
     json_merge = gdf.merge(df_cut, how="left", left_on="ADM2_EN", right_on="ADM2_EN")
 
-    colormap = branca.colormap.LinearColormap(
+    colormap = branca.colormap.StepColormap(
+        colors=['blue', 'green', 'yellow'],
+        index=[1, 2, 3],
         vmin=json_merge["Cluster"].min(),
         vmax=json_merge["Cluster"].max(),
-        fill_color="YlGnBu",
         caption="IK DBD",
     )
 
