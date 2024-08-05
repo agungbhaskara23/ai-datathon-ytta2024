@@ -381,13 +381,16 @@ if selected == 'Prediksi Nilai IK DBD':
         weighted_sum = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/weight_pca.csv')
         weighted_sum
 
-        # Calculate the index with new dataset
-        count_index = (weighted_sum * input_scaled)
-        count_index
+        input_scaled.shape
+        weighted_sum.shape
+        
+        # # Calculate the index with new dataset
+        # count_index = (weighted_sum * input_scaled)
+        # count_index
 
-        # Calculate the index with new dataset
-        count_index2 = weighted_sum.dot(input_scaled)
-        count_index2
+        # # Calculate the index with new dataset
+        # count_index2 = weighted_sum.dot(input_scaled)
+        # count_index2
 
         # # Normalize the count_index to the range [0, 1]
         # min_max_scaler = MinMaxScaler()
