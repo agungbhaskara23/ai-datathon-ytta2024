@@ -345,15 +345,14 @@ if selected == 'Prediksi Nilai IK DBD':
             'rasio_dokter': rasio_dokter 
         }
         input_df = pd.DataFrame(user_input, index=[0])
-        input_df
         
-        # scaler = StandardScaler()
-        # input_scaled = scaler.fit_transform(user_input)
+        scaler = StandardScaler()
+        input_scaled = scaler.fit_transform(user_input)
         
-        # # Calculate the index with new dataset
-        # count_index = input_scaled.dot(weighted_sum)
+        # Calculate the index with new dataset
+        count_index = input_scaled.dot(weighted_sum)
         
-        # # Normalize the count_index to the range [0, 1]
-        # min_max_scaler = MinMaxScaler()
-        # count_index_2022_normalized = min_max_scaler.fit_transform(count_index_2022.reshape(-1, 1))
-        # print(count_index_2022_normalized)
+        # Normalize the count_index to the range [0, 1]
+        min_max_scaler = MinMaxScaler()
+        count_index_2022_normalized = min_max_scaler.fit_transform(count_index_2022.reshape(-1, 1))
+        print(count_index_2022_normalized)
