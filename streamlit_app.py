@@ -221,11 +221,11 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
     col2.metric("Terendah", 23, "-8")
     col3.metric("Rata-rata", 23, "-8")
 
-    df_2022 = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/Dataset-Olah-2022.csv', delimiter=';', decimal=',', thousands='.')
+    df_final = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/df_final_with_cluster.csv')
     with col4:
         st.markdown('### Cluster Nilai IK DBD')
         plost.donut_chart(
-            data=df_2022,
+            data=df_final,
             color='company',
             legend='bottom', 
             use_container_width=True)
@@ -235,8 +235,8 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
         map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=False, tiles='CartoDB positron')
         choropleth = folium.Choropleth(
                     geo_data=json1,
-                    data=df_2023,
-                    columns=('KAB/KOT', variable_option),
+                    data=df_final,
+                    columns=('KAB/KOT', Index),
                     key_on='feature.properties.ADM2_EN',
                     line_opacity=0.8,
                     fill_opacity=0.8,
