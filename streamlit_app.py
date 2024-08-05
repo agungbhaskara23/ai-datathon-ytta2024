@@ -324,6 +324,7 @@ if selected == 'Prediksi Nilai IK DBD':
     with col4:
         kelembaban = st.text_input('Kelembaban (%)')
 
+    st.write("")
     col1, col2, col3 = st.columns(3)
     with col1:
         kep_pend = st.text_input('Kepadatan penduduk (jiwa/km2)')
@@ -354,13 +355,10 @@ if selected == 'Prediksi Nilai IK DBD':
         
         weighted_sum = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/weight_pca.csv')
 
-        input_scaled.shape
-        weighted_sum.shape
-
-        # # Calculate the index with new dataset
-        # count_index = input_scaled.dot(weighted_sum)
+        # Calculate the index with new dataset
+        count_index = input_scaled.dot(weighted_sum)
         
-        # # Normalize the count_index to the range [0, 1]
-        # min_max_scaler = MinMaxScaler()
-        # count_index_normalized = min_max_scaler.fit_transform(count_index.reshape(-1, 1))
-        # print(count_index_normalized)
+        # Normalize the count_index to the range [0, 1]
+        min_max_scaler = MinMaxScaler()
+        count_index_normalized = min_max_scaler.fit_transform(count_index.reshape(-1, 1))
+        print(count_index_normalized)
