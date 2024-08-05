@@ -236,7 +236,7 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
     choropleth = folium.Choropleth(
                     geo_data=json1,
                     data=df_final,
-                    columns=('KAB/KOT', Index),
+                    columns=('KAB/KOT', 'Index','Cluster'),
                     key_on='feature.properties.ADM2_EN',
                     line_opacity=0.8,
                     fill_opacity=0.8,
