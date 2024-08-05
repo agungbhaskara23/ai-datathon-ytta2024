@@ -243,7 +243,7 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
     colormap = branca.colormap.LinearColormap(
         vmin=json_merge["Cluster"].min(),
         vmax=json_merge["Index"].max(),
-        colors=["white", "lightred", "red"],
+        colors=["white", "lightblue", "blue"],
         caption="IK DBD",
     )
 
