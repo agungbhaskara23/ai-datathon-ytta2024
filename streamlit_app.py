@@ -349,7 +349,7 @@ if selected == 'Prediksi Nilai IK DBD':
         input_df = pd.DataFrame(user_input, index=[0])
         
         scaler = StandardScaler()
-        input_scaled = scaler.fit_transform(user_input)
+        input_scaled = scaler.fit_transform(input_df)
         
         # Calculate the index with new dataset
         count_index = input_scaled.dot(weighted_sum)
