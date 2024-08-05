@@ -331,8 +331,7 @@ if selected == 'Prediksi Nilai IK DBD':
 
     st.write("")
     if st.button('Predict IK DBD Value!'):
-        user_input = 
-        {
+        user_input={
             'ndbi_value': ndbi_value,
             'ndvi_value': ndvi_value,
             'ndwi_value': ndwi_value, 
