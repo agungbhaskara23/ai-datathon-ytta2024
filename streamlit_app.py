@@ -222,13 +222,13 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
     col3.metric("Rata-rata", 23, "-8")
 
     df_final = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/df_final_with_cluster.csv')
-    with col4:
-        st.markdown('### Cluster Nilai IK DBD')
-        plost.donut_chart(
-            data=df_final,
-            color='company',
-            legend='bottom', 
-            use_container_width=True)
+    # with col4:
+    #     st.markdown('### Cluster Nilai IK DBD')
+    #     plost.donut_chart(
+    #         data=df_final,
+    #         color='company',
+    #         legend='bottom', 
+    #         use_container_width=True)
 
     st.write("### Cluster and Index Calculation Mapping")
     json1 = f"data/shp_java_kabkota.geojson"
