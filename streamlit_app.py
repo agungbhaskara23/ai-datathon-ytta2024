@@ -286,7 +286,7 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
     ).add_to(m)
     
     st.write("### Cluster and Index Calculation Mapping")
-    st_map = folium_static(m, width=900, height=550)
+    st_map = folium_static(m, width=1100, height=550)
 
 # Simulasi IK DBD
 if selected == 'Prediksi Nilai IK DBD':
