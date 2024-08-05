@@ -398,5 +398,5 @@ if selected == 'Prediksi Nilai IK DBD':
 
         # Normalize the count_index to the range [0, 1]
         min_max_scaler = MinMaxScaler()
-        count_index_normalized = min_max_scaler.fit_transform(count_index2.reshape(-1, 1))
+        count_index_normalized = min_max_scaler.fit_transform(count_index2)
         count_index_normalized
