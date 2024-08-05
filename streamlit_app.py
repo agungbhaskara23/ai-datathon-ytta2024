@@ -224,9 +224,9 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
     clust_2 = df_final[df_final['Cluster'] == 2]['Index']
     clust_3 = df_final[df_final['Cluster'] == 3]['Index']
     col1, col2, col3, col4, col5, col6 = st.columns(6)
-    col1.metric("Rata-rata Indeks Clust 1", round(clust_1.mean(),4))
+    col1.metric("Rata-rata Indeks Cluster 1", round(clust_1.mean(),4))
     col2.metric("Banyak Kab/Kota Cluster 1", len(clust_1))
-    col3.metric("Rata-rata Indeks Clust 2", round(clust_2.mean(),4))
+    col3.metric("Rata-rata Indeks Cluster 2", round(clust_2.mean(),4))
     col4.metric("Banyak Kab/Kota Cluster 2", len(clust_2))
     col5.metric("Rata-rata Indeks Cluster 3", round(clust_3.mean(),4))
     col6.metric("Banyak Kab/Kota Cluster 3", len(clust_3))
