@@ -8,3 +8,5 @@ streamlit_option_menu
 folium
 streamlit_folium
 plost
+geopandas
+branca
