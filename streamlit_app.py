@@ -4,6 +4,8 @@ from streamlit_option_menu import option_menu
 import folium
 from streamlit_folium import st_folium
 import plost
+import branca
+import geopandas
 
 st.set_page_config(layout="wide")
 
@@ -216,35 +218,74 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
             '(IK DBD) dibangun dengan menggunakan dataset pada tahun 2020, 2021, dan 2023. Bobot dihitung dengan menggunakan metode PCA')
     st.write('Hasil perolehan nilai indeks kemudian dilanjutkan dengan proses *clustering* atau pengelompokkan untuk melihat pola kedekatan atau pengelompokkan antarnilai indeks.')
 
-    df_final = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/df_final_with_cluster.csv')
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("Tertinggi", df_final['Index'].max())
     col2.metric("Terendah", df_final['Index'].min())
     col3.metric("Rata-rata",df_final['Index'].mean())
+    
+    # Mapping Indeks  
+    import geopandas as gpd
+    import json
+
+    with open("data/shp_java_kabkota.geojson") as f:
+        data = json.load(f)
+    
+    # Convert JSON data to GeoDataFrame
+    gdf = gpd.GeoDataFrame.from_features(data['features'], crs="EPSG:4326")
 
     df_final = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/df_final_with_cluster.csv')
-    # with col4:
-    #     st.markdown('### Cluster Nilai IK DBD')
-    #     plost.donut_chart(
-    #         data=df_final,
-    #         color='company',
-    #         legend='bottom', 
-    #         use_container_width=True)
+    df_cut = df_final.copy()
+    df_cut = df_cut.iloc[:,18:20]
+    df_cut['ADM2_EN'] = df_cluster['KAB/KOT']
+    json_merge = gdf.merge(df_cut, how="left", left_on="ADM2_EN", right_on="ADM2_EN")
 
-    st.write("### Cluster and Index Calculation Mapping")
-    json1 = f"data/shp_java_kabkota.geojson"
-    map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=False, tiles='CartoDB positron')
-    choropleth = folium.Choropleth(
-                    geo_data=json1,
-                    data=df_final,
-                    columns=('KAB/KOT', 'Index','Cluster'),
-                    key_on='feature.properties.ADM2_EN',
-                    line_opacity=0.8,
-                    fill_opacity=0.8,
-                    highlight=True,
+    colormap = branca.colormap.LinearColormap(
+        vmin=json_merge["Index"].quantile(0.0),
+        vmax=json_merge["Index"].quantile(1),
+        colors=["darkgreen", "green", "lightblue", "orange", "red"],
+        caption="IK DBD",
     )
-    choropleth.geojson.add_to(map)
-    st_map = st_folium(map, width=1500, height=550)
+
+    m = folium.Map(location=[-7.576882, 111.819939], zoom_start=7)
+
+    popup = folium.GeoJsonPopup(
+        fields=["ADM2_EN", "Index"],
+        aliases=["Kab/Kota", "IK DBD"],
+        localize=True,
+        labels=True,
+        style="background-color: yellow;",
+    )
+
+    tooltip = folium.GeoJsonTooltip(
+        fields=["ADM2_EN", "Index", "Cluster"],
+        aliases=["Kab/Kota:", "IK DBD:", "Cluster IK DBD:"],
+        localize=True,
+        sticky=False,
+        labels=True,
+        style="""
+            background-color: #F0EFEF;
+            border: 2px solid black;
+            border-radius: 3px;
+            box-shadow: 3px;
+        """,
+        max_width=800,
+    )
+
+    g = folium.GeoJson(
+        json_merge,
+        style_function=lambda x: {
+            "fillColor": colormap(x["properties"]["Index"])
+            if x["properties"]["Index"] is not None
+            else "transparent",
+            "color": "black",
+            "fillOpacity": 0.8,
+        },
+        tooltip=tooltip,
+        popup=popup,
+    ).add_to(m)
+    
+    st.write("### Cluster and Index Calculation Mapping")
+    st_map = st_folium(m, width=1500, height=550)
 
 # Simulasi IK DBD
 if selected == 'Prediksi Nilai IK DBD':
@@ -280,3 +321,5 @@ if selected == 'Prediksi Nilai IK DBD':
         persen_miskin = st.text_input('Persentase penduduk miskin (%)')
     with col3:
         rasio_dokter = st.text_input('Rasio dokter (per 1.000 penduduk)')
+
+    
