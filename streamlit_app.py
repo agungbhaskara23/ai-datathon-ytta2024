@@ -347,7 +347,7 @@ if selected == 'Prediksi Nilai IK DBD':
             'rasio_dokter': rasio_dokter 
         }
         input_df = pd.DataFrame(user_input, index=[0])
-        
+        input_df = input_df.astype(np.float64)
         scaler = StandardScaler()
         input_scaled = scaler.fit_transform(input_df)
 
