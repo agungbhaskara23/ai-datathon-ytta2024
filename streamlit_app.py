@@ -224,11 +224,11 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
     clust_2 = df_final[df_final['Cluster'] == 2]['Index']
     clust_3 = df_final[df_final['Cluster'] == 3]['Index']
     col1, col2, col3, col4, col5, col6 = st.columns(6)
-    col1.metric("Rata-rata Indeks di Cluster 1", clust_1.mean())
+    col1.metric("Rata-rata Indeks di Cluster 1", round(clust_1.mean(),4))
     col2.metric("Banyak Kab/Kota Cluster 1", len(clust_1))
-    col3.metric("Rata-rata Indeks di Cluster 2", clust_3.mean())
+    col3.metric("Rata-rata Indeks di Cluster 2", round(clust_2.mean(),4))
     col4.metric("Banyak Kab/Kota Cluster 2", len(clust_2))
-    col5.metric("Rata-rata Indeks di Cluster 3", clust_3.mean())
+    col5.metric("Rata-rata Indeks di Cluster 3", round(clust_3.mean(),4))
     col6.metric("Banyak Kab/Kota Cluster 3", len(clust_3))
     
     # Mapping Indeks  
@@ -247,7 +247,7 @@ if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
     json_merge = gdf.merge(df_cut, how="left", left_on="ADM2_EN", right_on="ADM2_EN")
 
     colormap = branca.colormap.StepColormap(
-        colors=['blue', 'green', 'yellow'],
+        colors=['lightblue', 'white', 'blue'],
         index=[1, 2, 3],
         vmin=json_merge["Cluster"].min(),
         vmax=json_merge["Cluster"].max(),
