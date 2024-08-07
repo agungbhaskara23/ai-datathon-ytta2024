@@ -17,7 +17,7 @@ st.set_page_config(layout="wide")
 # Sidebar for navigation
 with st.sidebar:
     selected = option_menu('IK DBD Dashboard Menu',
-                           ['About', 'Learn about Data', Methodology,
+                           ['About', 'Learn about Data', 'Methodology',
                             'Indeks Kerentanan Penyakit DBD (IK DBD)','Prediksi Nilai IK DBD'],
                            menu_icon='hospital',
                            icons=['house', 'gear', 'person', 'app'],
