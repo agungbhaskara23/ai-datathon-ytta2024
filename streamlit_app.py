@@ -18,7 +18,7 @@ st.set_page_config(layout="wide")
 with st.sidebar:
     selected = option_menu('IK DBD Dashboard Menu',
                            ['About', 'Learn about Index Data', 'Methodology',
-                            'IK DBD Value','Value Prediction of IK DBD'],
+                            'IK DBD Value','Simulation of IK DBD Value'],
                            menu_icon='hospital',
                            icons=['house', 'gear', 'person', 'app'],
                            default_index=0)
@@ -45,7 +45,7 @@ if selected == 'About':
     st.write('Informasi dashboard mencakup latar belakang, fitur yang tersedia, dan cara penggunaan dashboard')
 
     st.write('**2. Learn about Index Data**')
-    st.write('Informasi variabel yang digunakan sebagai penyusun indeks secara deskriptif dan disajikan dalam sejumlah bentuk visual')
+    st.write('Informasi variabel yang digunakan sebagai penyusun indeks secara deskriptif dan disajikan dalam peta interaktif')
 
     st.write('**3. Methodology**')
     st.write('Metode-metode yang digunakan dalam melakukan penyusunan indeks')
@@ -53,7 +53,7 @@ if selected == 'About':
     st.write('**4. IK DBD Value**')
     st.write('Hasil penghitungan IK DBD pada wilayah Pulau Jawa, Indonesia pada tahun tertentu (2022). Hasil disajikan dalam berbagai visualisasi, seperti grafik dan peta hasil cluster. Interpretasi dari nilai IK DBD pada masing-masing cluster juga tersaji dalam bagian ini')
 
-    st.write('**5. Value Prediction of IK DBD**')
+    st.write('**5. Simulation of IK DBD**')
     st.write('Simulasi nilai IK DBD yang diperoleh ketika dilakukan inputasi nilai seecara manual pada masing-masing variabel penyusun indeks')
 
     st.title("How to Use it?")
@@ -368,9 +368,9 @@ if selected == 'IK DBD Value':
     st_map = folium_static(m, width=1100, height=550)
 
 # Simulasi IK DBD
-if selected == 'Prediksi Nilai IK DBD':
+if selected == 'Simulation of IK DBD Value':
     # page title
-    st.title('Prediksi Nilai IK DBD')
+    st.title('Simulasi Nilai IK DBD')
 
     # Define columns
     columns = ['ndbi_value', 'ndvi_value', 'ndwi_value', 'co2_value', 'co_value', 'curah_hujan', 'suhu', 'kelembaban', 'kep_pend', 'persen_miskin', 'rasio_dokter']
