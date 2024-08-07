@@ -120,8 +120,7 @@ if selected == 'Learn about Index Data':
         map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=False, tiles='CartoDB positron')
         
         # Add Choropleth layer
-        try:
-            choropleth = folium.Choropleth(
+        choropleth = folium.Choropleth(
                 geo_data=gdf_2020.to_json(),  # Convert GeoDataFrame to GeoJSON
                 data=gdf_2020,
                 columns=['KAB/KOT', variable_option],
@@ -130,10 +129,8 @@ if selected == 'Learn about Index Data':
                 fill_opacity=0.8,
                 highlight=True,
                 legend_name=variable_option
-            )
-            choropleth.add_to(map)
-        except ValueError as e:
-            st.error(f"Error adding Choropleth layer: {e}")
+        )
+        choropleth.add_to(map)
         
         # Add tooltips to each feature
         tooltip = folium.GeoJson(
@@ -142,7 +139,7 @@ if selected == 'Learn about Index Data':
             tooltip=folium.GeoJsonTooltip(fields=['ADM2_EN', variable_option], aliases=['Kab/Kota', variable_option])
         )
         tooltip.add_to(map)
-        st_map = folium_static(map, width=1100, height=550) 
+        st_map = folium_static(map, width=1100, height=550)
 
     if year_option == "2021" and variable_option != None:
         st.write('')
