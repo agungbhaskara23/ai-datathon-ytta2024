@@ -372,7 +372,7 @@ if selected == 'Prediksi Nilai IK DBD':
         data_input = data_input.astype(np.float64)
 
         # Convert to numpy array for StandardScaler
-        input_df = np.array(data_input).reshape(-1, 1)
+        input_df = np.array(data_input)
 
         scaler = MinMaxScaler()
         input_scaled = scaler.fit_transform(input_df)      
