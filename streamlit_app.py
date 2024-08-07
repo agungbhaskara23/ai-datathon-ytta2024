@@ -402,4 +402,4 @@ with st.form("Question", clear_on_submit=True):
     user_question = st.text_input("Ask a question:")
     submitted = st.form_submit_button("Submit")
     if submitted:
-        handle_userinput(user_question)
+        submitted.empty()
