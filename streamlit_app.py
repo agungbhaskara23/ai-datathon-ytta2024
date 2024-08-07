@@ -373,11 +373,16 @@ if submitted:
             'persen_miskin': persen_miskin,
             'rasio_dokter': rasio_dokter 
     }
-    input = pd.DataFrame(user_input, columns=columns)
-    df_input = df_input.append(input, ignore_index=True)
-
-st.write(df_input)
-st.write(len(df_input))
+    
+    # Convert the user input to a DataFrame with a single row
+    input_df = pd.DataFrame([user_input], columns=columns)
+    
+    # Append to the existing DataFrame
+    df_input = pd.concat([df_input, input_df], ignore_index=True)
+    
+    st.write("Data stored successfully!")
+    st.write(df_input)
+    st.write(len(df_input))
 
 st.write("")
 if st.button('Predict IK DBD Value!'):
