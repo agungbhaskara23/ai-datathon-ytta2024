@@ -371,6 +371,7 @@ with st.form(key='form-index', clear_on_submit=True):
         rasio_dokter = st.text_input('Rasio dokter (per 1.000 penduduk)', value='', key='rasio_dokter')
 
     submitted = st.form_submit_button("Store to Data")
+    clear_all = st.button("Clear all existing data"):
 
 # Process the form data
 if submitted:
@@ -400,6 +401,11 @@ if submitted:
         
         st.write("Data stored successfully!")
         st.write(st.session_state.df_input)
+
+# Button to clear all existing data
+if clear_all:
+    st.session_state.df_input = pd.DataFrame(columns=columns)
+    st.write("All existing data has been cleared.")
 
 st.write("")
 if st.button('Predict IK DBD Value!'):
