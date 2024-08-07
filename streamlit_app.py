@@ -381,11 +381,13 @@ if selected == 'Prediksi Nilai IK DBD':
         
         # Calculate the index with new dataset
         count_index = input_scaled.dot(weighted_sum_transpose)
-        # input_scaled.shape
-        # weighted_sum_transpose.shape
         # st.write(count_index)
 
         # Normalize the weighted sum to the range [0, 1]
         min_max_scaler = MinMaxScaler()
         count_index_normalized = min_max_scaler.fit_transform(count_index.reshape(-1, 1))
         st.write(count_index_normalized)
+
+        input_scaled.shape
+        weighted_sum_transpose.shape
+        count_index_normalized.shape
