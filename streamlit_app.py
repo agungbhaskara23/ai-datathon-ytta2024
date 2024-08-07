@@ -244,8 +244,20 @@ if selected == 'Methodology':
     st.write('*k-Means Clustering* adalah metode *machine learning* berupa klasterisasi atau pengelompokkan yang digunakan untuk membagi data ke dalam beberapa kelompok (cluster) yang tidak saling tumpang tindih. Metode ini bertujuan untuk mengelompokkan data sehingga setiap data dalam satu cluster lebih mirip satu sama lain daripada data dari cluster lain. Ilustrasi '
              'dari proses PCA dan k-means clustering ditunjukkan oleh gambar berikut.')
     col1, col2 = st.columns(2)
+
     with col1:
-        st.image('data/photos/principal-component-analysis-illustration.jpg', caption='PCA Illustration')
+        # URL of the image
+        image_url = "https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/photos/principal-component-analysis-illustration.jpg"
+        
+        # HTML code to center the image
+        html_code = f"""
+        <div style="text-align: center;">
+            <img src="{image_url}" style="max-width: 100%; height: auto;" />
+        </div>
+        """
+        
+        # Use st.markdown() to render the HTML code
+        st.markdown(html_code, unsafe_allow_html=True)
     with col1:
         st.image('data/photos/k-means-clustering-illustration.png', caption='k-Means Clustering Illustration')
 
