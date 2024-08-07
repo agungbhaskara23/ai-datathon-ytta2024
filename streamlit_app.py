@@ -491,7 +491,7 @@ if selected == 'IK DBD Value':
     col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
         
     with col2:
-        st.image('data/photos/dbd-case-bandung-highest.jpg', caption='Jumlah kasus DBD Tahun 2022 di Kota Bandung', use_column_width=True)  # Center the image in the middle column
+        st.image('data/photos/dbd-case-bandung-highest-2022.jpg', caption='Jumlah kasus DBD Tahun 2022 di Kota Bandung', use_column_width=True)  # Center the image in the middle column
     
     st.write('Dengan demikian, dapat dikatakan bahwa hasil penghitungan IK DBD sejalan dengan jumlah kasus DBD yang terjadi pada kabupaten/kota di Pulau Jawa. Nilai indeks ini dapat dijadikan sebagai acuan awal dalam pengambilan keputusan penanggulangan penyakit menular DBD. Di sisi lain, indeks yang dibangun '
             'juga dapat menjadi inovasi baik yang mampu dikembangkan di masa mendatang, seperti pemodelan dengan cakupan wilayah lainnya yang lebih luas atau penerapan model lain yang lebih komprehensif dan terkini.')
