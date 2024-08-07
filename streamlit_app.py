@@ -84,10 +84,10 @@ if selected == 'Learn about Index Data':
     gdf_var = gpd.read_file(geojson_path)
 
     # Merge the GeoDataFrame with your DataFrame
-    gdf_2020 = gdf.merge(df_2020, left_on='ADM2_EN', right_on='KAB/KOT')
-    gdf_2021 = gdf.merge(df_2021, left_on='ADM2_EN', right_on='KAB/KOT')
-    gdf_2022 = gdf.merge(df_2022, left_on='ADM2_EN', right_on='KAB/KOT')
-    gdf_2023 = gdf.merge(df_2023, left_on='ADM2_EN', right_on='KAB/KOT')
+    gdf_2020 = gdf_var.merge(df_2020, left_on='ADM2_EN', right_on='KAB/KOT')
+    gdf_2021 = gdf_var.merge(df_2021, left_on='ADM2_EN', right_on='KAB/KOT')
+    gdf_2022 = gdf_var.merge(df_2022, left_on='ADM2_EN', right_on='KAB/KOT')
+    gdf_2023 = gdf_var.merge(df_2023, left_on='ADM2_EN', right_on='KAB/KOT')
     
     col1, col2 = st.columns(2)
     variable_option = col1.selectbox(
