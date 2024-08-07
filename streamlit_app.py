@@ -323,8 +323,9 @@ if selected == 'Prediksi Nilai IK DBD':
     # page title
     st.title('Prediksi Nilai IK DBD')
 
-columns = ['ndbi_value','ndvi_value','ndwi_value','co2_value','co_value','curah_hujan','suhu','kelembaban','kep_pend','persen_miskin','rasio_dokter']
-df_input = pd.DataFrame(columns=columns)
+# Initialize the DataFrame in session state if it doesn't exist
+if 'df_input' not in st.session_state:
+    st.session_state.df_input = pd.DataFrame(columns=['ndbi_value','ndvi_value','ndwi_value','co2_value','co_value','curah_hujan','suhu','kelembaban','kep_pend','persen_miskin','rasio_dokter'])
 
 with st.form(key='form-index', clear_on_submit=True):
     col1, col2, col3, col4 = st.columns(4)
@@ -375,14 +376,14 @@ if submitted:
     }
     
     # Convert the user input to a DataFrame with a single row
-    input_df = pd.DataFrame([user_input], columns=columns)
+    input_df = pd.DataFrame([user_input], columns=st.session_state.df_input.columns)
     
-    # Append to the existing DataFrame
-    df_input = pd.concat([df_input, input_df], ignore_index=True)
+    # Append to the existing DataFrame in session state
+    st.session_state.df_input = pd.concat([st.session_state.df_input, input_df], ignore_index=True)
     
     st.write("Data stored successfully!")
-    st.write(df_input)
-    st.write(len(df_input))
+    st.write(st.session_state.df_input)
+    st.write(len(st.session_state.df_input))
 
 st.write("")
 if st.button('Predict IK DBD Value!'):
