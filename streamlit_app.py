@@ -323,6 +323,7 @@ if selected == 'Prediksi Nilai IK DBD':
     # page title
     st.title('Prediksi Nilai IK DBD')
 
+with st.form(key='form-index' clear_on_submit=True):
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         ndbi_value = st.text_input('NDBI Index Value')
@@ -352,9 +353,11 @@ if selected == 'Prediksi Nilai IK DBD':
         persen_miskin = st.text_input('Persentase penduduk miskin (%)')
     with col3:
         rasio_dokter = st.text_input('Rasio dokter (per 1.000 penduduk)')
+    
+    submitted = st.form_submit_button("Store to Data")
 
-    st.write("")
-    if st.button('Predict IK DBD Value!'):
+st.write("")
+if st.button('Predict IK DBD Value!'):
         user_input={
             'ndbi_value': ndbi_value,
             'ndvi_value': ndvi_value,
@@ -398,8 +401,4 @@ if selected == 'Prediksi Nilai IK DBD':
         # weighted_sum_transpose.shape
         # count_index_normalized.shape
 
-with st.form("Question", clear_on_submit=True):
-    user_question = st.text_input("Ask a question:")
-    submitted = st.form_submit_button("Submit")
-    if submitted:
-        submitted.empty()
+
