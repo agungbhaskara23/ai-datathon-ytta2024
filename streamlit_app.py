@@ -243,14 +243,11 @@ if selected == 'Methodology':
              'Tujuan utama dari PCA adalah untuk mengurangi jumlah variabel dalam dataset sambil mempertahankan sebagian besar informasi yang terkandung di dalamnya. PCA mencari kombinasi linier dari variabel-variabel asli yang memiliki varians terbesar, sehingga memungkinkan analisis data yang lebih sederhana dan lebih mudah dipahami.')
     st.write('*k-Means Clustering* adalah metode *machine learning* berupa klasterisasi atau pengelompokkan yang digunakan untuk membagi data ke dalam beberapa kelompok (cluster) yang tidak saling tumpang tindih. Metode ini bertujuan untuk mengelompokkan data sehingga setiap data dalam satu cluster lebih mirip satu sama lain daripada data dari cluster lain. Ilustrasi '
              'dari proses PCA dan k-means clustering ditunjukkan oleh gambar berikut.')
-    col1, col2 = st.columns(2)
-
-    with col1:
-        # Create columns to center the image
-        col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
+    # Create columns to center the image
+    col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
         
-        with col2:
-            st.image('data/photos/principal-component-analysis-illustration.jpg', use_column_width=True)  # Center the image in the middle column
+    with col2:
+        st.image('data/photos/principal-component-analysis-illustration.jpg', use_column_width=True)  # Center the image in the middle column
 
 # IK DBD
 if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
