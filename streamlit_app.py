@@ -10,6 +10,7 @@ import geopandas
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
 import numpy as np
+import streamlit.components.v1 as components
 
 st.set_page_config(layout="wide")
 
