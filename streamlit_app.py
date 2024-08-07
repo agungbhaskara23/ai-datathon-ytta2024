@@ -62,11 +62,11 @@ if selected == 'About':
         
     with col2:
     # Read video file as bytes
-    with open('data/photos/demo-dashboard.mp4', 'rb') as video_file:
-        video_bytes = video_file.read()
-
-        # Use video bytes
-        st.video(video_bytes, caption='Video Demo Penggunaan Dashboard', use_column_width=True)
+        with open('data/photos/demo-dashboard.mp4', 'rb') as video_file:
+            video_bytes = video_file.read()
+    
+            # Use video bytes
+            st.video(video_bytes, caption='Video Demo Penggunaan Dashboard', use_column_width=True)
 
     st.title("Author and Further Information")
     st.write('Dashboard ini merupakan hasil analisis projek AI Datathon 2024 oleh Tim YTTA. Tim YTTA beranggotakan 3 orang yaitu:')
