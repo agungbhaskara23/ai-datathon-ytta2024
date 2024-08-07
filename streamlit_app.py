@@ -81,7 +81,7 @@ if selected == 'Learn about Index Data':
 
     geojson_path = f"data/shp_java_kabkota.geojson"
     # Read GeoJSON into a GeoDataFrame
-    gdf_var = gpd.read_file(geojson_path)
+    gdf_var = gpd.GeoDataFrame.from_features(data['features'], crs="EPSG:4326")
 
     # Merge the GeoDataFrame with your DataFrame
     gdf_2020 = gdf_var.merge(df_2020, left_on='ADM2_EN', right_on='KAB/KOT')
@@ -120,7 +120,7 @@ if selected == 'Learn about Index Data':
         # Add Choropleth layer
         try:
             choropleth = folium.Choropleth(
-                geo_data=gdf_2020,  # Convert GeoDataFrame to GeoJSON
+                geo_data=gdf_2020.to_json(),  # Convert GeoDataFrame to GeoJSON
                 data=df_2020,
                 columns=['KAB/KOT', 'Variable'],
                 key_on='feature.properties.ADM2_EN',
