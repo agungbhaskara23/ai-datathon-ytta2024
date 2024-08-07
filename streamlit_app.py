@@ -403,34 +403,20 @@ if submitted:
 
 st.write("")
 if st.button('Predict IK DBD Value!'):
-        user_input={
-            'ndbi_value': ndbi_value,
-            'ndvi_value': ndvi_value,
-            'ndwi_value': ndwi_value, 
-            'co2_value': co2_value,
-            'co_value': co_value, 
-            'curah_hujan': curah_hujan, 
-            'suhu': suhu, 
-            'kelembaban': kelembaban, 
-            'kep_pend': kep_pend, 
-            'persen_miskin': persen_miskin,
-            'rasio_dokter': rasio_dokter 
-        }
-        data_input = pd.DataFrame(user_input, index=[0])
-        data_input = data_input.astype(np.float64)
-
-        # Convert to numpy array for StandardScaler
-        input_df = np.array(data_input)
-        scaler = MinMaxScaler()
-        input_scaled = scaler.fit_transform(input_df)      
+    if len(st.session_state.df_input) < 1:
+        st.error("Please provide more data input (minimum: 2)")
+    else:
+        data_used = np.array(st.session_state.df_input)
+        scaler = StandardScaler()
+        input_scaled = scaler.fit_transform(data_used)      
         
         # Import weight
         weighted_sum_raw = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/weight_pca.csv')
         weighted_sum = np.array(weighted_sum_raw)
         
         # Calculate the index with new dataset
-        count_index = input_df.dot(weighted_sum)
-        st.write(input_df)
+        count_index = data_used.dot(weighted_sum)
+        st.write(data_used)
         st.write(input_scaled)
         st.write(weighted_sum)
         st.write(count_index)
@@ -445,5 +431,3 @@ if st.button('Predict IK DBD Value!'):
         # input_scaled.shape
         # weighted_sum_transpose.shape
         # count_index_normalized.shape
-
-
