@@ -247,13 +247,38 @@ if selected == 'Methodology':
     col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
         
     with col2:
-        st.image('data/photos/principal-component-analysis-illustration.jpg', caption='k-Means Clustering Illustration (source: https://www.researchgate.net/publication/357820328_dataPCAemosi)', use_column_width=True)  # Center the image in the middle column
+        st.image('data/photos/principal-component-analysis-illustration.jpg', caption='Principal Component Analysis (PCA) Illustration (source: https://www.researchgate.net/publication/357820328_dataPCAemosi)', use_column_width=True)  # Center the image in the middle column
 
     # Create columns to center the image
     col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
         
     with col2:
         st.image('data/photos/k-means-clustering-illustration.png', caption='k-Means Clustering Illustration (source: https://www.google.com)', use_column_width=True)  # Center the image in the middle column
+
+    st.write('Dalam proses penyusunan IK DBD, metode PCA digunakan untuk mendapatkan komponen-komponen utama yang merepresentasikan data penyusun indeks. Selain itu, nilai *loadings* pada PCA bersamaan dengan nilai varians masing-masing komponen utama digunakan '
+             'sebagai pembobot masing-masing variabel. Dengan kata lain, bobot masing-masing variabel penyusun indeks dibentuk dengan melakukan *dot product* antara kedua nilai tersebut. Indeks kemudian dihitung dengan melakukan *dot product* antara nilai bobot dan variabel '
+             'yang telah dilakukan transformasi terlebih dahulu (standardisasi data untuk menyetarakan satuan antarvariabel). Tiga komponen utama hasil proses PCA terpilih untuk mewakili variansi data berdasarkan grafik berikut.')
+
+    # Create columns to center the image
+    col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
+        
+    with col2:
+        st.image('data/photos/pca-explained-variance-ratio.png', caption='Varians yang dijelaskan oleh komponen utama (masing-masing dan kumulaif)', use_column_width=True)  # Center the image in the middle column
+        
+    st.write('Proses *clustering* dilakukan setelah nilai IK DBD berhasil dihitung. Penentuan nilai kelas klaster optimal dilakukan dengan menggunakan metode *elbow* dan analisis *silhouette*. Metode ini memberikan hasil bahwa pembentukan 3 kelas klaster merupakan jumlah yang paling optimal. '
+             'Analisis pembentukan nilai kelas klaster optimal disajikan pada gambar berikut.')
+
+    # Create columns to center the image
+    col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
+        
+    with col2:
+        st.image('data/photos/elbow-method-optimal-clusters.png', caption='Nilai kelas kluster optimal (Elbow Method)', use_column_width=True)  # Center the image in the middle column
+
+    # Create columns to center the image
+    col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
+        
+    with col2:
+        st.image('data/photos/silhouette-analysis-optimal-clusters.png', caption='Nilai kelas kluster optimal (Silhouette Analysis)', use_column_width=True)  # Center the image in the middle column
 
 # IK DBD
 if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
