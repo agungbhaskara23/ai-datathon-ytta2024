@@ -323,61 +323,82 @@ if selected == 'Prediksi Nilai IK DBD':
     # page title
     st.title('Prediksi Nilai IK DBD')
 
+# Define columns
+columns = ['ndbi_value', 'ndvi_value', 'ndwi_value', 'co2_value', 'co_value', 'curah_hujan', 'suhu', 'kelembaban', 'kep_pend', 'persen_miskin', 'rasio_dokter']
+
 # Initialize the DataFrame in session state if it doesn't exist
 if 'df_input' not in st.session_state:
-    st.session_state.df_input = pd.DataFrame(columns=['ndbi_value','ndvi_value','ndwi_value','co2_value','co_value','curah_hujan','suhu','kelembaban','kep_pend','persen_miskin','rasio_dokter'])
+    st.session_state.df_input = pd.DataFrame(columns=columns)
 
+# Define a custom component to handle key events
+def prevent_enter_key():
+    components.html(
+        """
+        <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();  // Prevent default Enter key action
+            }
+        });
+        </script>
+        """,
+        height=0
+    )
+
+# Display the custom component
+prevent_enter_key()
+
+# Streamlit form
 with st.form(key='form-index', clear_on_submit=True):
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        ndbi_value = st.text_input('NDBI Index Value')
+        ndbi_value = st.number_input('NDBI Index Value', format="%.4f")
     with col2:
-        ndvi_value = st.text_input('NDVI Index Value')
+        ndvi_value = st.number_input('NDVI Index Value', format="%.4f")
     with col3:
-        ndwi_value = st.text_input('NDWI Index Value')
+        ndwi_value = st.number_input('NDWI Index Value', format="%.4f")
     with col4:
-        co2_value = st.text_input('CO2 Value')
+        co2_value = st.number_input('CO2 Value', format="%.4f")
 
     st.write("")
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        co_value = st.text_input('CO Value')
+        co_value = st.number_input('CO Value', format="%.4f")
     with col2:
-        curah_hujan = st.text_input('Curah Hujan (mm/day)')
+        curah_hujan = st.number_input('Curah Hujan (mm/day)', format="%.4f")
     with col3:
-        suhu = st.text_input('Suhu (C)')     
+        suhu = st.number_input('Suhu (C)', format="%.4f")
     with col4:
-        kelembaban = st.text_input('Kelembaban (%)')
+        kelembaban = st.number_input('Kelembaban (%)', format="%.4f")
 
     st.write("")
     col1, col2, col3 = st.columns(3)
     with col1:
-        kep_pend = st.text_input('Kepadatan penduduk (jiwa/km2)')
+        kep_pend = st.number_input('Kepadatan penduduk (jiwa/km2)', format="%.4f")
     with col2:
-        persen_miskin = st.text_input('Persentase penduduk miskin (%)')
+        persen_miskin = st.number_input('Persentase penduduk miskin (%)', format="%.4f")
     with col3:
-        rasio_dokter = st.text_input('Rasio dokter (per 1.000 penduduk)')
+        rasio_dokter = st.number_input('Rasio dokter (per 1.000 penduduk)', format="%.4f")
     
     submitted = st.form_submit_button("Store to Data")
 
+# Process the form data
 if submitted:
-    user_input={
-            'ndbi_value': ndbi_value,
-            'ndvi_value': ndvi_value,
-            'ndwi_value': ndwi_value, 
-            'co2_value': co2_value,
-            'co_value': co_value, 
-            'curah_hujan': curah_hujan, 
-            'suhu': suhu, 
-            'kelembaban': kelembaban, 
-            'kep_pend': kep_pend, 
-            'persen_miskin': persen_miskin,
-            'rasio_dokter': rasio_dokter 
+    user_input = {
+        'ndbi_value': ndbi_value,
+        'ndvi_value': ndvi_value,
+        'ndwi_value': ndwi_value,
+        'co2_value': co2_value,
+        'co_value': co_value,
+        'curah_hujan': curah_hujan,
+        'suhu': suhu,
+        'kelembaban': kelembaban,
+        'kep_pend': kep_pend,
+        'persen_miskin': persen_miskin,
+        'rasio_dokter': rasio_dokter
     }
-    
     # Convert the user input to a DataFrame with a single row
     input_df = pd.DataFrame([user_input], columns=st.session_state.df_input.columns)
-    
     # Append to the existing DataFrame in session state
     st.session_state.df_input = pd.concat([st.session_state.df_input, input_df], ignore_index=True)
     
