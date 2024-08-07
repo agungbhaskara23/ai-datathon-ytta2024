@@ -370,8 +370,11 @@ with st.form(key='form-index', clear_on_submit=True):
     with col3:
         rasio_dokter = st.text_input('Rasio dokter (per 1.000 penduduk)', value='', key='rasio_dokter')
 
-    submitted = st.form_submit_button("Store to Data")
-    clear_all = st.form_submit_button("Clear all existing data")
+    col1, col2 = st.column(2)
+    with col1: 
+        submitted = st.form_submit_button("Store to Data")
+    with col2:
+        clear_all = st.form_submit_button("Clear all existing data")
 
 # Process the form data
 if submitted:
@@ -426,14 +429,12 @@ if st.button('Predict IK DBD Value!'):
         st.write(input_scaled)
         st.write(weighted_sum)
         st.write(count_index)
+        data_used.shape
+        input_scaled.shape
+        weighted_sum.shape
         count_index.shape
 
-        # # Normalize the weighted sum to the range [0, 1]
-        # min_max_scaler = MinMaxScaler()
-        # count_index_normalized = min_max_scaler.fit_transform(count_index)
-        # st.write(count_index_normalized)
-
-        # input_df.shape
-        # input_scaled.shape
-        # weighted_sum_transpose.shape
-        # count_index_normalized.shape
+        # Normalize the weighted sum to the range [0, 1]
+        min_max_scaler = MinMaxScaler()
+        count_index_normalized = min_max_scaler.fit_transform(count_index)
+        st.write(count_index_normalized)
