@@ -81,7 +81,7 @@ if selected == 'Learn about Index Data':
 
     geojson_path = f"data/shp_java_kabkota.geojson"
     # Read GeoJSON into a GeoDataFrame
-    gdf_var = gpd.GeoDataFrame.from_features(data['features'], crs="EPSG:4326")
+    gdf_var = gpd.GeoDataFrame.from_features(geojson_path['features'], crs="EPSG:4326")
 
     # Merge the GeoDataFrame with your DataFrame
     gdf_2020 = gdf_var.merge(df_2020, left_on='ADM2_EN', right_on='KAB/KOT')
