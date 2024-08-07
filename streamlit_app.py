@@ -331,81 +331,77 @@ columns = ['ndbi_value', 'ndvi_value', 'ndwi_value', 'co2_value', 'co_value', 'c
 if 'df_input' not in st.session_state:
     st.session_state.df_input = pd.DataFrame(columns=columns)
 
-# Define a custom component to handle key events
-def prevent_enter_key():
-    components.html(
-        """
-        <script>
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                event.preventDefault();  // Prevent default Enter key action
-            }
-        });
-        </script>
-        """,
-        height=0
-    )
-
-# Display the custom component
-prevent_enter_key()
+# Validation function
+def validate_number(value):
+    try:
+        return float(value)
+    except ValueError:
+        return None
 
 # Streamlit form
 with st.form(key='form-index', clear_on_submit=True):
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        ndbi_value = st.number_input('NDBI Index Value', format="%.4f")
+        ndbi_value = st.text_input('NDBI Index Value', value='', key='ndbi_value')
     with col2:
-        ndvi_value = st.number_input('NDVI Index Value', format="%.4f")
+        ndvi_value = st.text_input('NDVI Index Value', value='', key='ndvi_value')
     with col3:
-        ndwi_value = st.number_input('NDWI Index Value', format="%.4f")
+        ndwi_value = st.text_input('NDWI Index Value', value='', key='ndwi_value')
     with col4:
-        co2_value = st.number_input('CO2 Value', format="%.4f")
+        co2_value = st.text_input('CO2 Value', value='', key='co2_value')
 
     st.write("")
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        co_value = st.number_input('CO Value', format="%.4f")
+        co_value = st.text_input('CO Value', value='', key='co_value')
     with col2:
-        curah_hujan = st.number_input('Curah Hujan (mm/day)', format="%.4f")
+        curah_hujan = st.text_input('Curah Hujan (mm/day)', value='', key='curah_hujan')
     with col3:
-        suhu = st.number_input('Suhu (C)', format="%.4f")
+        suhu = st.text_input('Suhu (C)', value='', key='suhu')
     with col4:
-        kelembaban = st.number_input('Kelembaban (%)', format="%.4f")
+        kelembaban = st.text_input('Kelembaban (%)', value='', key='kelembaban')
 
     st.write("")
     col1, col2, col3 = st.columns(3)
     with col1:
-        kep_pend = st.number_input('Kepadatan penduduk (jiwa/km2)', format="%.4f")
+        kep_pend = st.text_input('Kepadatan penduduk (jiwa/km2)', value='', key='kep_pend')
     with col2:
-        persen_miskin = st.number_input('Persentase penduduk miskin (%)', format="%.4f")
+        persen_miskin = st.text_input('Persentase penduduk miskin (%)', value='', key='persen_miskin')
     with col3:
-        rasio_dokter = st.number_input('Rasio dokter (per 1.000 penduduk)', format="%.4f")
-    
+        rasio_dokter = st.text_input('Rasio dokter (per 1.000 penduduk)', value='', key='rasio_dokter')
+
     submitted = st.form_submit_button("Store to Data")
 
 # Process the form data
 if submitted:
     user_input = {
-        'ndbi_value': ndbi_value,
-        'ndvi_value': ndvi_value,
-        'ndwi_value': ndwi_value,
-        'co2_value': co2_value,
-        'co_value': co_value,
-        'curah_hujan': curah_hujan,
-        'suhu': suhu,
-        'kelembaban': kelembaban,
-        'kep_pend': kep_pend,
-        'persen_miskin': persen_miskin,
-        'rasio_dokter': rasio_dokter
+        'ndbi_value': validate_number(ndbi_value),
+        'ndvi_value': validate_number(ndvi_value),
+        'ndwi_value': validate_number(ndwi_value),
+        'co2_value': validate_number(co2_value),
+        'co_value': validate_number(co_value),
+        'curah_hujan': validate_number(curah_hujan),
+        'suhu': validate_number(suhu),
+        'kelembaban': validate_number(kelembaban),
+        'kep_pend': validate_number(kep_pend),
+        'persen_miskin': validate_number(persen_miskin),
+        'rasio_dokter': validate_number(rasio_dokter)
     }
-    # Convert the user input to a DataFrame with a single row
-    input_df = pd.DataFrame([user_input], columns=st.session_state.df_input.columns)
-    # Append to the existing DataFrame in session state
-    st.session_state.df_input = pd.concat([st.session_state.df_input, input_df], ignore_index=True)
-    
-    st.write("Data stored successfully!")
-    st.write(st.session_state.df_input)
-    st.write(len(st.session_state.df_input))
+
+    # Remove entries with invalid data
+    user_input = {k: v for k, v in user_input.items() if v is not None}
+
+    if user_input:
+        # Convert the user input to a DataFrame with a single row
+        input_df = pd.DataFrame([user_input], columns=st.session_state.df_input.columns)
+        # Append to the existing DataFrame in session state
+        st.session_state.df_input = pd.concat([st.session_state.df_input, input_df], ignore_index=True)
+        
+        st.write("Data stored successfully!")
+        st.write(st.session_state.df_input)
+        st.write(len(st.session_state.df_input))
+    else:
+        st.write("Please provide valid numeric input.")
 
 st.write("")
 if st.button('Predict IK DBD Value!'):
