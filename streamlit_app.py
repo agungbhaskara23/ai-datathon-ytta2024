@@ -397,3 +397,9 @@ if selected == 'Prediksi Nilai IK DBD':
         # input_scaled.shape
         # weighted_sum_transpose.shape
         # count_index_normalized.shape
+
+with st.form("Question", clear_on_submit=True):
+    user_question = st.text_input("Ask a question:")
+    submitted = st.form_submit_button("Submit")
+    if submitted:
+        handle_userinput(user_question)
