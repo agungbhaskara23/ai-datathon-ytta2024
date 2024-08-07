@@ -79,9 +79,11 @@ if selected == 'Learn about Index Data':
     df_2022 = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/Dataset-Olah-2022.csv', delimiter=';', decimal=',', thousands='.')
     df_2023 = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/Dataset-Olah-2023.csv', delimiter=';', decimal=',', thousands='.')
 
-    geojson_path = f"data/shp_java_kabkota.geojson"
+    # Load the JSON data into a pandas DataFrame
+    with open("data/shp_java_kabkota.geojson", 'r') as f:
+        data = json.load(f)
     # Read GeoJSON into a GeoDataFrame
-    gdf_var = gpd.GeoDataFrame.from_features(geojson_path['features'], crs="EPSG:4326")
+    gdf_var = gpd.GeoDataFrame.from_features(data['features'], crs="EPSG:4326")
 
     # Merge the GeoDataFrame with your DataFrame
     gdf_2020 = gdf_var.merge(df_2020, left_on='ADM2_EN', right_on='KAB/KOT')
@@ -127,7 +129,7 @@ if selected == 'Learn about Index Data':
                 line_opacity=0.8,
                 fill_opacity=0.8,
                 highlight=True,
-                legend_name='Variable'
+                legend_name=variable_option
             )
             choropleth.add_to(map)
         except ValueError as e:
