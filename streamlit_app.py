@@ -379,14 +379,11 @@ if selected == 'Prediksi Nilai IK DBD':
         # Import weight
         weighted_sum_raw = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/weight_pca.csv')
         weighted_sum = np.array(weighted_sum_raw)
-        st.write(weighted_sum)
-        weighted_sum.shape
-
-        st.write(type(input_df))
-        st.write(type(weighted_sum))
         
         # Calculate the index with new dataset
         count_index = input_scaled.dot(weighted_sum)
+        st.write(input_scaled)
+        st.write(weighted_sum)
         count_index.shape
         st.write(count_index)
 
