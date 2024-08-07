@@ -462,7 +462,7 @@ if selected == 'IK DBD Value':
 
     st.write('Nilai IK DBD yang telah diperoleh dibandingkan dengan jumlah kasus DBD pada tahun yang sama. Data bersumber dari Kementerian Kesehatan yang diperoleh dengan akses terbatas. Pemetaan jumlah kasus DBD per kabupaten/kota tahun 2022 tersaji pada gambar berikut. Nilai jumlah kasus yang semakin besar ditandai dengan warna yang semakin merah dan sebaliknya dengan semakin putih yang menunjukkan jumlah kasus semakin sedikit. '
              'Jumlah kasus DBD terjadi di Kota Bandung yang mencapai 5.205 kasus. Jika disandingkan dengan nilai indeks yang diperoleh, IK DBD pada Kota Bandung termasuk dalam kategori tinggi dengan nilai indeks 0,54.')
-    st.write('Hal sejalan juga terjadi di wilayah lainnya seperti Kota Bekasi (sebagai sub-urban Jakarta) dengan kasus DBD tahun 2022 mencapai 2.442 kasus dan nilai IK DBD sebesar 0,735. Selain itu, pada wilayah dengan jumlah kasus DBD terendah,
+    st.write('Hal sejalan juga terjadi di wilayah lainnya seperti Kota Bekasi (sebagai sub-urban Jakarta) dengan kasus DBD tahun 2022 mencapai 2.442 kasus dan nilai IK DBD sebesar 0,735. Selain itu, pada wilayah dengan jumlah kasus DBD terendah, '
              'seperti pada Kabupaten Temanggung Jawa Tengah sebesar 29 kasus DBD, nilai indeks kerentanan DBD di kabupaten tersebut adalah sebesar 0,083 yang termasuk dalam klaster indeks dengan kerentanan DBD rendah.')
     
     # Create columns to center the image
