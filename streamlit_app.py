@@ -388,6 +388,7 @@ if selected == 'Prediksi Nilai IK DBD':
         count_index_normalized = min_max_scaler.fit_transform(count_index)
         st.write(count_index_normalized)
 
+        data_input.shape
         input_scaled.shape
         weighted_sum_transpose.shape
         count_index_normalized.shape
