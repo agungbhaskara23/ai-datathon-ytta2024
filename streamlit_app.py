@@ -61,10 +61,12 @@ if selected == 'About':
     col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
         
     with col2:
-        video_file = open("https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/demo-dashboard.mp4", "rb")
+    # Read video file as bytes
+    with open('data/photos/demo-dashboard.mp4', 'rb') as video_file:
         video_bytes = video_file.read()
 
-        st.video('video_bytes', caption='Video Demo Penggunaan Dashboard', use_column_width=True)  # Center the image in the middle column
+        # Use video bytes
+        st.video(video_bytes, caption='Video Demo Penggunaan Dashboard', use_column_width=True)
 
     st.title("Author and Further Information")
     st.write('Dashboard ini merupakan hasil analisis projek AI Datathon 2024 oleh Tim YTTA. Tim YTTA beranggotakan 3 orang yaitu:')
