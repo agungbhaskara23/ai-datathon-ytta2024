@@ -65,6 +65,7 @@ if selected == 'About':
     st.write('2. Deanty Fatihatul Magfirah')
     st.write('3. Rizqi Annisa Zen')
 
+    st.write("")
     st.write('Informasi lebih lanjut mengenai projek ini dapat dilihat pada laman github berikut:')
     st.page_link("https://github.com/agungbhaskara23/ai-datathon-ytta2024", label="Github Project", icon="📽️")
     
