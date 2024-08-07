@@ -234,8 +234,8 @@ st.write("")
         
         # Add Choropleth layer
         choropleth = folium.Choropleth(
-                geo_data=gdf_2020.to_json(),  # Convert GeoDataFrame to GeoJSON
-                data=gdf_2020,
+                geo_data=gdf_2023.to_json(),  # Convert GeoDataFrame to GeoJSON
+                data=gdf_2023,
                 columns=['KAB/KOT', variable_option],
                 key_on='feature.properties.ADM2_EN',
                 fill_color="RdYlBu",
@@ -248,7 +248,7 @@ st.write("")
         
         # Add tooltips to each feature
         tooltip = folium.GeoJson(
-            gdf_2020.to_json(),
+            gdf_2023.to_json(),
             name='ADM2_EN',
             tooltip=folium.GeoJsonTooltip(fields=['ADM2_EN', variable_option], aliases=['Kab/Kota', variable_option])
         )
