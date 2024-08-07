@@ -57,6 +57,16 @@ if selected == 'About':
 
     st.title("How to Use it?")
     st.write('Panduan atau tutorial penggunaan dashboard ini dapat dilihat pada video berikut.')
+
+
+    st.title("Author and Further Information")
+    st.write('Dashboard ini merupakan hasil analisis projek AI Datathon 2024 oleh Tim YTTA. Tim YTTA beranggotakan 3 orang yaitu:')
+    st.write('1. Anak Agung Gede Rai Bhaskara Darmawan Pemayun')
+    st.write('2. Deanty Fatihatul Magfirah')
+    st.write('3. Rizqi Annisa Zen')
+
+    st.write('Informasi lebih lanjut mengenai projek ini dapat dilihat pada laman github berikut:')
+    st.page_link("https://github.com/agungbhaskara23/ai-datathon-ytta2024", label="Github", icon="🌎")
     
 if selected == 'Learn about Index Data':
     # page title
