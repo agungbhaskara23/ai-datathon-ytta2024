@@ -373,7 +373,7 @@ if submitted:
             'persen_miskin': persen_miskin,
             'rasio_dokter': rasio_dokter 
     }
-    input = pd.DataFrame(user_input, index=[0])
+    input = pd.DataFrame(user_input, columns=columns)
     df_input = df_input.append(input, ignore_index=True)
 
 st.write(df_input)
