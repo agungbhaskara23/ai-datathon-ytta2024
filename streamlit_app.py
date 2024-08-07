@@ -413,7 +413,7 @@ if selected == 'Prediksi Nilai IK DBD':
             st.error("Please provide more data input (minimum: 2)")
         else:
             data_used = np.array(st.session_state.df_input)
-            scaler = StandardScaler()
+            scaler = MinMaxScaler()
             input_scaled = scaler.fit_transform(data_used)      
             
             # Import weight
@@ -431,7 +431,7 @@ if selected == 'Prediksi Nilai IK DBD':
             weighted_sum.shape
             count_index.shape
     
-            # Normalize the weighted sum to the range [0, 1]
-            min_max_scaler = MinMaxScaler()
-            count_index_normalized = min_max_scaler.fit_transform(count_index)
-            st.write(count_index_normalized)
+            # # Normalize the weighted sum to the range [0, 1]
+            # min_max_scaler = MinMaxScaler()
+            # count_index_normalized = min_max_scaler.fit_transform(count_index)
+            # st.write(count_index_normalized)
