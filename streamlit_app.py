@@ -235,7 +235,7 @@ if selected == 'Learn about Data':
         st.write('Ketika **kelembaban** tinggi, maka tingkat kerentanan DBD tinggi. Hal ini disebabkan karena nyamuk semakin leluasa, lingkungan lembab membantu nyamuk berkembang biak dan meningkatkan aktivitas nyamuk. Kelembaban yang bernilai rendah mengakibatkan cairan tubuh nyamuk kering akibat terjadinya penguapan')
 
 # Methodology
-if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
+if selected == 'Methodology':
     # page title
     st.title('Index Methodology')
 
