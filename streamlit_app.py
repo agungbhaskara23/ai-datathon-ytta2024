@@ -152,7 +152,7 @@ if selected == 'Learn about Index Data':
         col4.metric("Tertinggi", round(df_2021[variable_option].max(),4), round((df_2021[variable_option].max()) - (df_2020[variable_option].max()),4))
         col5.metric("Standar Deviasi", round(df_2021[variable_option].std(),4), round((df_2021[variable_option].std()) - (df_2020[variable_option].std()),4))
 
-st.write("")
+        st.write("")
         st.write("### Mapping of ",variable_option, " Areas in Pulau Jawa (", year_option, ")")
         map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=True, tiles='CartoDB positron')
         
@@ -256,40 +256,62 @@ st.write("")
         st_map = folium_static(map, width=1100, height=550)
    
     if variable_option == "NDVI" and year_option != None:
-        st.write("### Deskripsi Data") 
+        st.write("### Deskripsi Variabel") 
         st.write('NDVI merupakan indeks dari cita satelit Sentinel 2 yang mampu memetakan daerah vegetasi di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDVI tinggi**, maka terdapat '
         'banyak vegetasi lebat sehingga menjadi habitat yg baik untuk nyamuk.')
 
     if variable_option == "NDBI" and year_option != None:
-        st.write("### Deskripsi Data") 
+        st.write("### Deskripsi Variabel") 
         st.write('NDBI merupakan indeks dari citra satelit Sentinel 2 yang mampu memetakan daerah lahan terbangun di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDBI tinggi**, maka terdapat '
         'banyak pemukiman yang mengakibatkan penduduk makin padat dan potensi penyebaran nyamuk DBD makin tinggi')
 
     if variable_option == "NDWI" and year_option != None:
-        st.write("### Deskripsi Data") 
+        st.write("### Deskripsi Variabel") 
         st.write('NDWI merupakan indeks dari citra satelit Sentinel 2 yang mampu memetakan daerah perairan di suatu wilayah. Dalam hal kaitannya dengan tingkat kerentanan DBD, Ketika nilai **NDBI tinggi**, maka terdapat '
         'cukup banyak wilayah yang menjadi genangan air sebagai tempat perkembangbiak nyamuk')
 
     if variable_option == "CO2" and year_option != None:
-        st.write("### Deskripsi Data") 
+        st.write("### Deskripsi Variabel") 
         st.write('CO2 merupakan indeks dari citra satelit Sentinel 5P yang mampu memetakan kandungan gas CO2 di udara. Dalam hal kaitannya dengan tingkat kerentanan DBD, '
         'kandungan CO2 pada udara bersifat atraktan yang mampu menarik nyamuk untuk berdekatan pada manusia sehingga berpotensi menularkan virus dengue ke manusia')
 
     if variable_option == "CO" and year_option != None:
-        st.write("### Deskripsi Data") 
+        st.write("### Deskripsi Variabel") 
         st.write('CO merupakan indeks dari citra satelit Sentinel 5P yang mampu memetakan kandungan gas karbon monoksida di udara. Dalam hal kaitannya dengan tingkat kerentanan DBD, '
         'CO merupakan bahan kimia yang ada dalam cairan pemberantasan nyamuk (fogging). Dengan demikian, keberadaan CO yang semakin tinggi di udara menyebabkan habitat nyamuk DBD menjadi berkurang')
 
     if variable_option == "Curah Hujan (BMKG)" and year_option != None:
-        st.write("### Deskripsi Data") 
-        st.write('Curah hujan merupakan tingkat intensitas air jatuh ke bumi dalam bentuk hujan. Data yang disediakan oleh BMKG adalah dalam bentuk harian. Pada dashboard ini, digunakan '
-        'rata rata curah hujan harian per tahun. Dalam kaitannya dengan tingkat kerentanan DBD, ketika **curah hujan** tinggi, terdapat dua kemungkinan. Jika frekuensi hujan lebat dan terus menerus, hal ini dapat berpotensi menghilangkan tempat perkembangbiakan nyamuk. '
+        st.write("### Deskripsi Variabel") 
+        st.write('Curah hujan adalah jumlah air hujan yang jatuh di suatu tempat dalam periode waktu tertentu dengan satuan milimeter (mm). Data yang disediakan oleh BMKG adalah dalam bentuk harian. Pada dashboard ini, digunakan '
+        'rata rata curah hujan harian per tahun. Dalam kaitannya dengan tingkat kerentanan DBD, curah hujan berkorelasi positif dengan DBD *(Arisanti & Suryaningtyas, 2021)*. Ketika **curah hujan** tinggi, terdapat dua kemungkinan. Jika frekuensi hujan lebat dan terus menerus, hal ini dapat berpotensi menghilangkan tempat perkembangbiakan nyamuk. '
         'Di sisi lain, jika frekuensi singkat, maka berpotensi menimbulkan genangan air')
 
     if variable_option == "Kelembaban (BMKG)" and year_option != None:
-        st.write("### Deskripsi Data") 
-        st.write('Ketika **kelembaban** tinggi, maka tingkat kerentanan DBD tinggi. Hal ini disebabkan karena nyamuk semakin leluasa, lingkungan lembab membantu nyamuk berkembang biak dan meningkatkan aktivitas nyamuk. Kelembaban yang bernilai rendah mengakibatkan cairan tubuh nyamuk kering akibat terjadinya penguapan')
+        st.write("### Deskripsi Variabel") 
+        st.write('Kelembaban adalah ukuran jumlah uap air yang terdapat di dalam udara. Kelembaban dapat mempengaruhi kenyamanan, kesehatan, serta kondisi lingkungan dan atmosfer. Kelembaban yang tinggi menyebabkan aktivitas nyamuk menjadi lebih aktif. '
+                 'Hal ini disebabkan karena gerak nyamuk semakin leluasa sehingga membantu nyamuk berkembang biak. Kelembaban yang bernilai rendah mengakibatkan cairan tubuh nyamuk kering akibat terjadinya penguapan.')
 
+    if variable_option == "Temperature (BMKG)" and year_option != None:
+        st.write("### Deskripsi Variabel") 
+        st.write('Temperature atau suhu adalah ukuran derajat panas atau dinginnya suatu benda atau lingkungan. Suhu mempengaruhi berbagai aspek kehidupan dan alam, termasuk iklim, cuaca, kesehatan, proses industri, dan aktivitas biologis. Suhu yang lebih tinggi mempercepat siklus hidup nyamuk Aedes. Larva nyamuk berkembang lebih cepat menjadi dewasa, dan nyamuk betina yang telah matang '
+                 'dapat bertelur lebih cepat dan lebih sering. Nyamuk Aedes lebih aktif pada suhu yang lebih tinggi, meningkatkan kemungkinan penularan virus dengue.')
+
+    if variable_option == "KEP. PENDUDUK" and year_option != None: 
+        st.write("### Deskripsi Variabel") 
+        st.write('Kepadatan penduduk adalah ukuran jumlah orang yang tinggal di suatu area tertentu, biasanya dinyatakan sebagai jumlah penduduk per kilometer persegi (km²) (BPS). Kepadatan penduduk memberikan gambaran tentang bagaimana populasi tersebar di wilayah tertentu. Kepadatan penduduk yang tinggi dapat mempermudah penyebaran penyakit menular, salah satunya adalah penyakit DBD. '
+                'Mobilitas nyamuk dalam menyebarkan virus menjadi lebih mudah seiring dengan padatnya manusia di dalam suatu wilayah.')
+    
+    if variable_option == "PRESENTASE PENDUDUK MISKIN" and year_option != None: 
+        st.write("### Deskripsi Variabel") 
+        st.write('Persentase penduduk miskin mengukur proporsi penduduk yang hidup di bawah garis kemiskinan yang telah ditetapkan, yang mencakup pengeluaran minimum untuk kebutuhan dasar makanan dan non-makanan. Data diambil berdasarkan Survei Sosial Ekonomi Nasional (Susenas) yang dilakukan dua kali setahun. Daerah dengan persentase penduduk miskin yang tinggi sering kali memiliki kondisi  perumahan yang tidak memadai, yang dapat menciptakan lingkungan yang cocok untuk berkembang biaknya nyamuk Aedes. '
+                 'Genangan air di sekitar rumah, tempat sampah yang tidak dikelola dengan baik, dan kurangnya sistem drainase yang memadai adalah beberapa contoh kondisi lingkungan yang mendukung perkembangbiakan nyamuk.')
+        st.write('Penduduk miskin memiliki kemungkinan dalam akses yang terbatas ke layanan kesehatan, termasuk fasilitas untuk diagnosis dan pengobatan DBD. Hal ini dapat menyebabkan keterlambatan dalam penanganan kasus DBD, meningkatkan risiko komplikasi dan penyebaran lebih lanjut. Kurangnya edukasi kesehatan dan informasi mengenai pencegahan DBD di kalangan penduduk miskin dapat menghambat upaya pencegahan dan pengendalian penyakit ini.')
+    
+    if variable_option == "RASIO DOKTER" and year_option != None: 
+        st.write("### Deskripsi Variabel") 
+        st.write('Rasio dokter adalah ukuran yang menggambarkan jumlah dokter per jumlah penduduk di suatu wilayah tertentu. Rasio ini biasanya dinyatakan sebagai jumlah dokter per 1.000 penduduk. Rasio dokter adalah indikator penting dalam menilai aksesibilitas dan ketersediaan layanan kesehatan di suatu daerah. Dokter dapat berperan aktif dalam edukasi masyarakat mengenai pencegahan DBD, termasuk pentingnya menghilangkan tempat-tempat perkembangbiakan nyamuk, menggunakan kelambu, dan cara-cara untuk melindungi diri dari gigitan nyamuk. '
+                 'Dengan rasio dokter yang lebih baik, penduduk dapat lebih mudah mengakses informasi kesehatan yang relevan dan mendapatkan konseling mengenai tindakan pencegahan yang dapat diambil.')
+        
 # Methodology
 if selected == 'Methodology':
     # page title
