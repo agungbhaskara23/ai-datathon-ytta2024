@@ -371,7 +371,7 @@ with st.form(key='form-index', clear_on_submit=True):
         rasio_dokter = st.text_input('Rasio dokter (per 1.000 penduduk)', value='', key='rasio_dokter')
 
     submitted = st.form_submit_button("Store to Data")
-    clear_all = st.form_submit_button("Clear all existing data"):
+    clear_all = st.form_submit_button("Clear all existing data")
 
 # Process the form data
 if submitted:
