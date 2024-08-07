@@ -11,7 +11,7 @@ from streamlit_folium import folium_static
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
 
-st.set_page_config(layout="wide", page_title="Dashboard IK DBD", page_icon="📑")
+st.set_page_config(layout="wide", page_title="Dashboard IK DBD", page_icon="🗃️")
 
 # Sidebar for navigation
 with st.sidebar:
