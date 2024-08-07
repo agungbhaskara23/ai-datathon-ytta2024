@@ -246,18 +246,11 @@ if selected == 'Methodology':
     col1, col2 = st.columns(2)
 
     with col1:
-        # URL of the image
-        image_url = "https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/photos/principal-component-analysis-illustration.jpg"
+        # Create columns to center the image
+        col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
         
-        # HTML code to center the image
-        html_code = f"""
-        <div style="text-align: center;">
-            <img src="{image_url}" style="max-width: 100%; height: auto;" />
-        </div>
-        """
-        
-        # Use st.markdown() to render the HTML code
-        st.markdown(html_code, unsafe_allow_html=True)
+        with col2:
+            st.image('data/photos/principal-component-analysis-illustration.jpg', use_column_width=True)  # Center the image in the middle column
 
 # IK DBD
 if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
