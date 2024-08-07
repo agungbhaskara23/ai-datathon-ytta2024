@@ -388,20 +388,15 @@ if submitted:
         'rasio_dokter': validate_number(rasio_dokter)
     }
 
-    # Remove entries with invalid data
-    user_input = {k: v for k, v in user_input.items() if v is not None}
-
-    if user_input:
-        # Convert the user input to a DataFrame with a single row
-        input_df = pd.DataFrame([user_input], columns=st.session_state.df_input.columns)
+    # Check for None values
+    if input_df.isnull().values.any():
+        st.error("Please provide valid numeric input")
+    else:
         # Append to the existing DataFrame in session state
         st.session_state.df_input = pd.concat([st.session_state.df_input, input_df], ignore_index=True)
         
         st.write("Data stored successfully!")
         st.write(st.session_state.df_input)
-        st.write(len(st.session_state.df_input))
-    else:
-        st.write("Please provide valid numeric input.")
 
 st.write("")
 if st.button('Predict IK DBD Value!'):
