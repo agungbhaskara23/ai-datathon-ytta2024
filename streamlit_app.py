@@ -17,8 +17,8 @@ st.set_page_config(layout="wide")
 # Sidebar for navigation
 with st.sidebar:
     selected = option_menu('IK DBD Dashboard Menu',
-                           ['About', 'Learn about Data', 'Methodology',
-                            'Indeks Kerentanan Penyakit DBD (IK DBD)','Prediksi Nilai IK DBD'],
+                           ['About', 'Learn about Index Data', 'Methodology',
+                            'IK DBD Value','Value Prediction of IK DBD'],
                            menu_icon='hospital',
                            icons=['house', 'gear', 'person', 'app'],
                            default_index=0)
@@ -56,9 +56,9 @@ if selected == 'About':
     st.title("How to Use it?")
     st.write('Panduan atau tutorial penggunaan dashboard ini dapat dilihat pada video berikut.')
     
-if selected == 'Learn about Data':
+if selected == 'Learn about Index Data':
     # page title
-    st.title('Learn More about Index Data')
+    st.title('Descriptive Analysis of Variables to form Index')
     
     # import data
     df_2020 = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/Dataset-Olah-2020.csv', delimiter=';', decimal=',', thousands='.')
@@ -255,8 +255,8 @@ if selected == 'Methodology':
     with col2:
         st.image('data/photos/k-means-clustering-illustration.png', caption='k-Means Clustering Illustration (source: https://www.google.com)', use_column_width=True)  # Center the image in the middle column
 
-    st.write('Dalam proses penyusunan IK DBD, metode PCA digunakan untuk mendapatkan komponen-komponen utama yang merepresentasikan data penyusun indeks. Selain itu, nilai *loadings* pada PCA bersamaan dengan nilai varians masing-masing komponen utama digunakan '
-             'sebagai pembobot masing-masing variabel. Dengan kata lain, bobot masing-masing variabel penyusun indeks dibentuk dengan melakukan *dot product* antara kedua nilai tersebut. Indeks kemudian dihitung dengan melakukan *dot product* antara nilai bobot dan variabel '
+    st.write('Metode PCA digunakan untuk mendapatkan komponen-komponen utama yang merepresentasikan data penyusun indeks. Selain itu, nilai *loadings* pada PCA bersamaan dengan nilai varians masing-masing komponen utama digunakan '
+             'sebagai pembobot masing-masing variabel. Dengan kata lain, bobot masing-masing variabel penyusun indeks dibentuk dengan melakukan *dot product* antara kedua nilai tersebut. Data yang digunakan dalam proses pembobotan adalah data tahun 2020, 2021, dan 2023. Indeks kemudian dihitung dengan melakukan *dot product* antara nilai bobot dan variabel '
              'yang telah dilakukan transformasi terlebih dahulu (standardisasi data untuk menyetarakan satuan antarvariabel). Tiga komponen utama hasil proses PCA terpilih untuk mewakili variansi data berdasarkan grafik berikut.')
 
     # Create columns to center the image
@@ -266,7 +266,7 @@ if selected == 'Methodology':
         st.image('data/photos/pca-explained-variance-ratio.png', caption='Varians yang dijelaskan oleh komponen utama (masing-masing dan kumulaif)', use_column_width=True)  # Center the image in the middle column
         
     st.write('Proses *clustering* dilakukan setelah nilai IK DBD berhasil dihitung. Penentuan nilai kelas klaster optimal dilakukan dengan menggunakan metode *elbow* dan analisis *silhouette*. Metode ini memberikan hasil bahwa pembentukan 3 kelas klaster merupakan jumlah yang paling optimal. '
-             'Analisis pembentukan nilai kelas klaster optimal disajikan pada gambar berikut.')
+             'Pemilihan banyak kelas klaster yang optimal dilakukan berdasarkan gambar grafik berikut.')
 
     # Create columns to center the image
     col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
@@ -281,12 +281,11 @@ if selected == 'Methodology':
         st.image('data/photos/silhouette-analysis-optimal-clusters.png', caption='Nilai kelas kluster optimal (Silhouette Analysis)', use_column_width=True)  # Center the image in the middle column
 
 # IK DBD
-if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
+if selected == 'IK DBD Value':
     # page title
     st.title('Indeks Kerentanan DBD / IK DBD')
 
-    st.write('Dalam dashboard ini, penghitungan IK DBD dilakukan hanya pada tahun 2022 saja dengan menyesuaikan ketersediaan data kasus penderita DBD oleh Kementerian Kesehatan. Model penghitungan indeks kerentanan DBD '
-            '(IK DBD) dibangun dengan menggunakan dataset pada tahun 2020, 2021, dan 2023. Bobot dihitung dengan menggunakan metode PCA')
+    st.write('Penghitungan IK DBD yang ditampilkan pada dashboard ini merupakan nilai IK DBD untuk tahun 2022. Nilai indeks ini kemudian akan dibandingkan dengan data kasus penderita DBD tahun 2022 oleh Kementerian Kesehatan untuk melihat kesesuaian nilai indeks dengan kasus di lapangan.')
     st.write('Hasil perolehan nilai indeks kemudian dilanjutkan dengan proses *clustering* atau pengelompokkan untuk melihat pola kedekatan atau pengelompokkan antarnilai indeks.')
 
     df_final = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/df_final_with_cluster.csv')
