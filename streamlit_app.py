@@ -403,7 +403,7 @@ if submitted:
 
 st.write("")
 if st.button('Predict IK DBD Value!'):
-    if len(st.session_state.df_input) < 1:
+    if len(st.session_state.df_input) < 2:
         st.error("Please provide more data input (minimum: 2)")
     else:
         data_used = np.array(st.session_state.df_input)
