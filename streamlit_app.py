@@ -421,7 +421,7 @@ if selected == 'Prediksi Nilai IK DBD':
             weighted_sum = np.array(weighted_sum_raw)
             
             # Calculate the index with new dataset
-            count_index = data_used.dot(weighted_sum)
+            count_index = input_scaled.dot(weighted_sum)
             st.write(data_used)
             st.write(input_scaled)
             st.write(weighted_sum)
