@@ -59,7 +59,7 @@ if selected == 'About':
     st.write('Panduan atau tutorial penggunaan dashboard ini dapat dilihat pada video berikut.')
     
     # Direct video file path or URL
-    video_file_path = open('data/photos/demo-dashboard.mp4','rb')
+    video_file_path = open('data/photos/Demo-Dashboard.mp4','rb')
     vi = video_file_path.read()
     st.video(vi, caption='Video Demo Penggunaan Dashboard')
     
