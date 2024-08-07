@@ -380,5 +380,5 @@ if selected == 'Prediksi Nilai IK DBD':
         weighted_sum_transpose = weighted_sum.T
         
         # Calculate the index with new dataset
-        count_index = weighted_sum_transpose.dot(input_scaled)
+        count_index = input_scaled.dot(weighted_sum_transpose)
         st.write(count_index)
