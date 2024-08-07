@@ -385,7 +385,7 @@ if selected == 'Prediksi Nilai IK DBD':
 
         # Normalize the weighted sum to the range [0, 1]
         min_max_scaler = MinMaxScaler()
-        count_index_normalized = min_max_scaler.fit_transform(count_index.reshape(-1, 1))
+        count_index_normalized = min_max_scaler.fit_transform(count_index)
         st.write(count_index_normalized)
 
         input_scaled.shape
