@@ -452,6 +452,33 @@ if selected == 'IK DBD Value':
     st.write("### Cluster and Index Calculation Mapping")
     st_map = folium_static(m, width=1100, height=550)
 
+    st.write('Klaster berkategori rendah memiliki range nilai 0,00 hingga 0,30. Klaster berkategori sedang memiliki range nilai 0,27 hingga 0,56. Hal ini ditunjukkan pada gambar dibawah. Klaster berkategori rendah memiliki range nilai 0,42 hingga 1,00. Terjadinya tumpang tindih nilai ini diakibatkan adanya perbedaan yang cukup jauh pada **persentase penduduk miskin** suatu wilayah sebagai salah satu penyusun indeks. '
+             'Wilayah dengan presentase penduduk miskin tinggi berada pada klaster berkategori rendah dan sedang. Di sisi lain, presentase penduduk miskin rendah pada klaster berkategori tinggi. Wilayah yang termasuk dalam kategori nilai indeks DBD tinggi didominasi berada pada wilayah kota di Provinsi DKI Jakarta dan sekitarnya, seperti Kota Bekasi, Kota Tangerang dan Kota Tangerang Selatan.')
+    # Create columns to center the image
+    col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
+        
+    with col2:
+        st.image('data/photos/cluster-characteristics.jpg', caption='Karakteristik masing-masing kelas klaster', use_column_width=True)  # Center the image in the middle column
+
+    st.write('Nilai IK DBD yang telah diperoleh dibandingkan dengan jumlah kasus DBD pada tahun yang sama. Data bersumber dari Kementerian Kesehatan yang diperoleh dengan akses terbatas. Pemetaan jumlah kasus DBD per kabupaten/kota tahun 2022 tersaji pada gambar berikut. Nilai jumlah kasus yang semakin besar ditandai dengan warna yang semakin merah dan sebaliknya dengan semakin putih yang menunjukkan jumlah kasus semakin sedikit. '
+             'Jumlah kasus DBD terjadi di Kota Bandung yang mencapai 5.205 kasus. Jika disandingkan dengan nilai indeks yang diperoleh, IK DBD pada Kota Bandung termasuk dalam kategori tinggi dengan nilai indeks 0,54. Hal ini juga sejalan dengan wilayah lainnya seperti Kota Bekasi (sebagai sub-urban Jakarta) dengan kasus DBD tahun 2022 mencapai 2.442 kasus dan nilai IK DBD sebesar 0,735. Selain itu, pada wilayah dengan jumlah kasus DBD terendah, '
+             'seperti pada Kabupaten Temanggung Jawa Tengah sebesar 29 kasus DBD, nilai indeks kerentanan DBD di kabupaten tersebut adalah sebesar 0,083 yang termasuk dalam klaster indeks dengan kerentanan DBD rendah.')
+    
+    # Create columns to center the image
+    col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
+        
+    with col2:
+        st.image('data/photos/dbd-case-java-2022.png', caption='Sebaran kasus DBD Tahun 2022 di Pulau Jawa', use_column_width=True)  # Center the image in the middle column
+
+    # Create columns to center the image
+    col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
+        
+    with col2:
+        st.image('data/photos/dbd-case-bandung-highest.jpg', caption='Jumlah kasus DBD Tahun 2022 di Kota Bandung', use_column_width=True)  # Center the image in the middle column
+    
+    st.write('Dengan demikian, dapat dikatakan bahwa hasil penghitungan IK DBD sejalan dengan jumlah kasus DBD yang terjadi pada kabupaten/kota di Pulau Jawa. Nilai indeks ini dapat dijadikan sebagai acuan awal dalam pengambilan keputusan penanggulangan penyakit menular DBD. Di sisi lain, indeks yang dibangun '
+            'juga dapat menjadi inovasi baik yang mampu dikembangkan di masa mendatang, seperti pemodelan dengan cakupan wilayah lainnya yang lebih luas atau penerapan model lain yang lebih komprehensif dan terkini.')
+    
 # Simulasi IK DBD
 if selected == 'Simulation of IK DBD Value':
     # page title
