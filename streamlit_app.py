@@ -373,7 +373,7 @@ if selected == 'Prediksi Nilai IK DBD':
 
         # Convert to numpy array for StandardScaler
         input_df = np.array(data_input)
-        scaler = StandardScaler()
+        scaler = MinMaxScaler()
         input_scaled = scaler.fit_transform(input_df)      
         
         # Import weight
