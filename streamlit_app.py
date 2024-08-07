@@ -125,6 +125,7 @@ if selected == 'Learn about Index Data':
                 data=gdf_2020,
                 columns=['KAB/KOT', variable_option],
                 key_on='feature.properties.ADM2_EN',
+                fill_color="YlOrRd",
                 line_opacity=0.8,
                 fill_opacity=0.8,
                 highlight=True,
