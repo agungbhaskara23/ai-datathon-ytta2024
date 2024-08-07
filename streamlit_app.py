@@ -370,25 +370,27 @@ if selected == 'Prediksi Nilai IK DBD':
         }
         data_input = pd.DataFrame(user_input, index=[0])
         data_input = data_input.astype(np.float64)
+        data_input.shape
 
         # Convert to numpy array for StandardScaler
         input_df = np.array(data_input)
+        input_df.shape
 
-        scaler = MinMaxScaler()
-        input_scaled = scaler.fit_transform(input_df)      
-        weighted_sum = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/weight_pca.csv')
-        weighted_sum_transpose = weighted_sum.T
+        # scaler = MinMaxScaler()
+        # input_scaled = scaler.fit_transform(input_df)      
+        # weighted_sum = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/weight_pca.csv')
+        # weighted_sum_transpose = weighted_sum.T
         
-        # Calculate the index with new dataset
-        count_index = input_scaled.dot(weighted_sum_transpose)
-        # st.write(count_index)
+        # # Calculate the index with new dataset
+        # count_index = input_scaled.dot(weighted_sum_transpose)
+        # # st.write(count_index)
 
-        # Normalize the weighted sum to the range [0, 1]
-        min_max_scaler = MinMaxScaler()
-        count_index_normalized = min_max_scaler.fit_transform(count_index)
-        st.write(count_index_normalized)
+        # # Normalize the weighted sum to the range [0, 1]
+        # min_max_scaler = MinMaxScaler()
+        # count_index_normalized = min_max_scaler.fit_transform(count_index)
+        # st.write(count_index_normalized)
 
-        data_input.shape
-        input_scaled.shape
-        weighted_sum_transpose.shape
-        count_index_normalized.shape
+        # data_input.shape
+        # input_scaled.shape
+        # weighted_sum_transpose.shape
+        # count_index_normalized.shape
