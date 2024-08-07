@@ -373,9 +373,10 @@ if selected == 'Prediksi Nilai IK DBD':
 
         # Convert to numpy array for StandardScaler
         input_df = np.array(data_input)
-
         scaler = StandardScaler()
         input_scaled = scaler.fit_transform(input_df)      
+        
+        # Import weight
         weighted_sum_raw = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/weight_pca.csv')
         weighted_sum = np.array(weighted_sum_raw)
         st.write(weighted_sum)
@@ -384,9 +385,9 @@ if selected == 'Prediksi Nilai IK DBD':
         st.write(type(input_df))
         st.write(type(weighted_sum))
         
-        # # Calculate the index with new dataset
-        # count_index = input_scaled.dot(weighted_sum_transpose)
-        # # st.write(count_index)
+        # Calculate the index with new dataset
+        count_index = input_scaled.dot(weighted_sum)
+        st.write(count_index)
 
         # # Normalize the weighted sum to the range [0, 1]
         # min_max_scaler = MinMaxScaler()
