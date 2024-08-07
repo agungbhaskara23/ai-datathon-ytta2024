@@ -247,7 +247,13 @@ if selected == 'Methodology':
     col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
         
     with col2:
-        st.image('data/photos/principal-component-analysis-illustration.jpg', use_column_width=True)  # Center the image in the middle column
+        st.image('data/photos/principal-component-analysis-illustration.jpg', caption='k-Means Clustering Illustration (source: https://www.researchgate.net/publication/357820328_dataPCAemosi)', use_column_width=True)  # Center the image in the middle column
+
+    # Create columns to center the image
+    col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
+        
+    with col2:
+        st.image('data/photos/k-means-clustering-illustration.png', caption='k-Means Clustering Illustration (source: https://www.google.com)', use_column_width=True)  # Center the image in the middle column
 
 # IK DBD
 if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
