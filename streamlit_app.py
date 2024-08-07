@@ -44,14 +44,17 @@ if selected == 'About':
     st.write('**1. About**')
     st.write('Informasi dashboard mencakup latar belakang, fitur yang tersedia, dan cara penggunaan dashboard')
 
-    st.write('**2. Learn about Data**')
+    st.write('**2. Learn about Index Data**')
     st.write('Informasi variabel yang digunakan sebagai penyusun indeks secara deskriptif dan disajikan dalam sejumlah bentuk visual')
 
-    st.write('**3. Indeks Kerentanan Penyakit DBD (IK DBD)**')
+    st.write('**3. Methodology**')
+    st.write('Metode-metode yang digunakan dalam melakukan penyusunan indeks')
+
+    st.write('**4. IK DBD Value**')
     st.write('Hasil penghitungan IK DBD pada wilayah Pulau Jawa, Indonesia pada tahun tertentu (2022). Hasil disajikan dalam berbagai visualisasi, seperti grafik dan peta hasil cluster. Interpretasi dari nilai IK DBD pada masing-masing cluster juga tersaji dalam bagian ini')
 
-    st.write('**4. Prediksi Nilai IK DBD**')
-    st.write('Simulasi nilai IK DBD dan kelas cluster yang diperoleh ketika dilakukan inputasi nilai seecara manual pada masing-masing variabel penyusun indeks')
+    st.write('**5. Value Prediction of IK DBD**')
+    st.write('Simulasi nilai IK DBD yang diperoleh ketika dilakukan inputasi nilai seecara manual pada masing-masing variabel penyusun indeks')
 
     st.title("How to Use it?")
     st.write('Panduan atau tutorial penggunaan dashboard ini dapat dilihat pada video berikut.')
@@ -285,20 +288,20 @@ if selected == 'IK DBD Value':
     # page title
     st.title('Indeks Kerentanan DBD / IK DBD')
 
-    st.write('Penghitungan IK DBD yang ditampilkan pada dashboard ini merupakan nilai IK DBD untuk tahun 2022. Nilai indeks ini kemudian akan dibandingkan dengan data kasus penderita DBD tahun 2022 oleh Kementerian Kesehatan untuk melihat kesesuaian nilai indeks dengan kasus di lapangan.')
-    st.write('Hasil perolehan nilai indeks kemudian dilanjutkan dengan proses *clustering* atau pengelompokkan untuk melihat pola kedekatan atau pengelompokkan antarnilai indeks.')
+    st.write('Penghitungan nilai IK DBD yang ditampilkan pada dashboard ini merupakan nilai IK DBD untuk tahun 2022. Nilai indeks ini kemudian akan dibandingkan dengan data kasus penderita DBD tahun 2022 oleh Kementerian Kesehatan untuk melihat kesesuaian nilai indeks dengan kasus di lapangan.')
+    st.write('Hasil perolehan nilai indeks kemudian dikelompokkan menjadi 3 kelas dengan label kelas: Indeks Kerentanan Level Sedang (Cluster 1), Indeks Kerentanan Level Rendah (Cluster 2), dan Indeks Kerentanan Level Tinggi (Cluster 3)')
 
     df_final = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/df_final_with_cluster.csv')
     clust_1 = df_final[df_final['Cluster'] == 1]['Index']
     clust_2 = df_final[df_final['Cluster'] == 2]['Index']
     clust_3 = df_final[df_final['Cluster'] == 3]['Index']
     col1, col2, col3, col4, col5, col6 = st.columns(6)
-    col1.metric("Rata-rata Indeks Cluster 1", round(clust_1.mean(),4))
-    col2.metric("Banyak Kab/Kota Cluster 1", len(clust_1))
-    col3.metric("Rata-rata Indeks Cluster 2", round(clust_2.mean(),4))
-    col4.metric("Banyak Kab/Kota Cluster 2", len(clust_2))
-    col5.metric("Rata-rata Indeks Cluster 3", round(clust_3.mean(),4))
-    col6.metric("Banyak Kab/Kota Cluster 3", len(clust_3))
+    col1.metric("Rerata Indeks Klaster 1", round(clust_1.mean(),4))
+    col2.metric("Banyak Kab/Kota Klaster 1", len(clust_1))
+    col3.metric("Rerata Indeks Klaster 2", round(clust_2.mean(),4))
+    col4.metric("Banyak Kab/Kota Klaster 2", len(clust_2))
+    col5.metric("Rerata Indeks Klaster 3", round(clust_3.mean(),4))
+    col6.metric("Banyak Kab/Kota Klaster 3", len(clust_3))
     
     # Mapping Indeks  
     import geopandas as gpd
