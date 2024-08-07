@@ -64,7 +64,7 @@ if selected == 'Learn about Index Data':
     st.title('Descriptive Analysis of Variables to form Index')
 
     st.write('Data yang digunakan terbagi menjadi 2 sumber yaitu data citra satelit fusi (gabungan dari sejumlah citra satelit) yang diakses melalui platform Google Earth Engine (GEE) dan data official yang bersumber dari Kementerian Kesehatan, Badan Pusat Statistik (BPS), dan Badan Meteorologi Klimatologi dan Geofisika (BMKG). '
-             'Data-data yang digunakan dalam penyusunan indeks tercakup ke dalam beberapa faktor, yaitu faktor cuaca, lingkungan, dan ekonomi masyarakat. Uraian data yang menjadi variabel penyusun indeks secara rinci tersaji pada gambar berikut.')
+             'Data-data yang digunakan dalam penyusunan indeks tercakup ke dalam beberapa faktor, yaitu faktor cuaca, lingkungan, dan ekonomi masyarakat. Tahun data yang digunakan adalah tahun 2020 hingga 2023. Uraian data yang menjadi variabel penyusun indeks secara rinci tersaji pada gambar berikut.')
 
     # Create columns to center the image
     col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
