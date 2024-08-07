@@ -57,11 +57,12 @@ if selected == 'About':
 
     st.title("How to Use it?")
     st.write('Panduan atau tutorial penggunaan dashboard ini dapat dilihat pada video berikut.')
+    
     # Direct video file path or URL
-    video_file_path = f'data/photos/demo-dashboard.mp4'
-    st.video(video_file_path, caption='Video Demo Penggunaan Dashboard', use_column_width=True)
-
-
+    video_file_path = open('data/photos/demo-dashboard.mp4','rb')
+    vi = video_file_path.read()
+    st.video(vi, caption='Video Demo Penggunaan Dashboard')
+    
     st.title("Author and Further Information")
     st.write('Dashboard ini merupakan hasil analisis projek AI Datathon 2024 oleh Tim YTTA. Tim YTTA beranggotakan 3 orang yaitu:')
     st.write('1. Anak Agung Gede Rai Bhaskara Darmawan Pemayun')
