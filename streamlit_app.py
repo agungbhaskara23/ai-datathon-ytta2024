@@ -1,16 +1,15 @@
 import streamlit as st
-import pandas as pd
 from streamlit_option_menu import option_menu
+import numpy as np
+import pandas as pd
+import geopandas as gpd
+import json
+import branca
 import folium
 from streamlit_folium import st_folium
 from streamlit_folium import folium_static
-import plost
-import branca
-import geopandas
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
-import numpy as np
-import streamlit.components.v1 as components
 
 st.set_page_config(layout="wide")
 
@@ -80,6 +79,16 @@ if selected == 'Learn about Index Data':
     df_2022 = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/Dataset-Olah-2022.csv', delimiter=';', decimal=',', thousands='.')
     df_2023 = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/Dataset-Olah-2023.csv', delimiter=';', decimal=',', thousands='.')
 
+    geojson_path = f"data/shp_java_kabkota.geojson"
+    # Read GeoJSON into a GeoDataFrame
+    gdf_var = gpd.read_file(geojson_path)
+
+    # Merge the GeoDataFrame with your DataFrame
+    gdf_2020 = gdf.merge(df_2020, left_on='ADM2_EN', right_on='KAB/KOT')
+    gdf_2021 = gdf.merge(df_2021, left_on='ADM2_EN', right_on='KAB/KOT')
+    gdf_2022 = gdf.merge(df_2022, left_on='ADM2_EN', right_on='KAB/KOT')
+    gdf_2023 = gdf.merge(df_2023, left_on='ADM2_EN', right_on='KAB/KOT')
+    
     col1, col2 = st.columns(2)
     variable_option = col1.selectbox(
         "Option",("NDVI", "NDBI", "NDWI", "CO2", "CO", "Curah Hujan (BMKG)", "Temperature (BMKG)", "Kelembaban (BMKG)", "KEP. PENDUDUK", "PRESENTASE PENDUDUK MISKIN", "RASIO DOKTER"), index=None, placeholder="Pilih variabel", label_visibility="hidden"
@@ -87,7 +96,7 @@ if selected == 'Learn about Index Data':
     year_option = col2.selectbox(
         "Option",("2020", "2021", "2022", "2023"), index=None, placeholder="Pilih tahun", label_visibility="hidden"
     )
-
+    
     if variable_option == None:
         st.write("")
 
@@ -106,11 +115,10 @@ if selected == 'Learn about Index Data':
 
         st.write("")
         st.write("### Mapping of ",variable_option, " Areas in Pulau Jawa (", year_option, ")")
-        json1 = f"data/shp_java_kabkota.geojson"
         map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=False, tiles='CartoDB positron')
         choropleth = folium.Choropleth(
-                    geo_data=json1,
-                    data=df_2022,
+                    geo_data=gdf_2020.to_json,
+                    data=gdf_2020,
                     columns=('KAB/KOT', variable_option),
                     key_on='feature.properties.ADM2_EN',
                     line_opacity=0.8,
@@ -119,10 +127,15 @@ if selected == 'Learn about Index Data':
                     legend_name=variable_option
         )
         choropleth.geojson.add_to(map)
+        
+        # Add tooltips to each feature
+        tooltip = folium.GeoJson(
+            gdf_2020.to_json(),
+            name='ADM2_EN',
+            tooltip=folium.GeoJsonTooltip(fields=['ADM2_EN', variable_option], aliases=['Kab/Kota', variable_option])
+        )
+        tooltip.add_to(map)
         st_map = folium_static(map, width=1100, height=550) 
-
-        # tooltip = folium.features.GeoJson(json1, name="ADM2_EN", popup=folium.features.GeoJsonPop(field=["ADM2_EN"]))
-        # tooltip.geojson.add_to(map)
 
     if year_option == "2021" and variable_option != None:
         st.write('')
@@ -316,9 +329,6 @@ if selected == 'IK DBD Value':
     col6.metric("Banyak Kab/Kota Klaster 3", len(clust_3))
     
     # Mapping Indeks  
-    import geopandas as gpd
-    import json
-
     with open("data/shp_java_kabkota.geojson") as f:
         data = json.load(f)
     
