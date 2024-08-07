@@ -19,7 +19,7 @@ with st.sidebar:
                            ['About', 'Learn about Index Data', 'Methodology',
                             'IK DBD Value','Simulation of IK DBD Value'],
                            menu_icon='hospital',
-                           icons=['house', 'gear', 'person', 'app'],
+                           icons=['house', 'gear', 'list-task', 'app'],
                            default_index=0)
 
 # About Page
@@ -66,7 +66,7 @@ if selected == 'About':
     st.write('3. Rizqi Annisa Zen')
 
     st.write('Informasi lebih lanjut mengenai projek ini dapat dilihat pada laman github berikut:')
-    st.page_link("https://github.com/agungbhaskara23/ai-datathon-ytta2024", label="Github", icon="🌎")
+    st.page_link("https://github.com/agungbhaskara23/ai-datathon-ytta2024", label="Github Project", icon="📽️")
     
 if selected == 'Learn about Index Data':
     # page title
