@@ -228,6 +228,8 @@ if selected == 'Learn about Index Data':
         col4.metric("Tertinggi", round(df_2023[variable_option].max(),4), round((df_2023[variable_option].max()) - (df_2022[variable_option].max()),4))
         col5.metric("Standar Deviasi", round(df_2023[variable_option].std(),4), round((df_2023[variable_option].std()) - (df_2022[variable_option].std()),4))
 
+        st.write('Penurunan atau peningkatan yang terjadi pada nilai-nilai *summary statistics* merupakan hasil penghitungan dengan nilai pada tahun sebelumnya (kecuali tahun 2020 karena data tahun 2019 tidak digunakan)')
+
         st.write("")
         st.write("### Mapping of ",variable_option, " Areas in Pulau Jawa (", year_option, ")")
         map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=True, tiles='CartoDB positron')
@@ -326,13 +328,13 @@ if selected == 'Methodology':
     col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
         
     with col2:
-        st.image('data/photos/principal-component-analysis-illustration.jpg', caption='Principal Component Analysis (PCA) Illustration (source: https://www.researchgate.net/publication/357820328_dataPCAemosi)', use_column_width=True)  # Center the image in the middle column
+        st.image('data/photos/principal-component-analysis-illustration.jpg', caption='Ilustrasi Principal Component Analysis (PCA) (source: https://www.researchgate.net/publication/357820328_dataPCAemosi)', use_column_width=True)  # Center the image in the middle column
 
     # Create columns to center the image
     col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
         
     with col2:
-        st.image('data/photos/k-means-clustering-illustration.png', caption='k-Means Clustering Illustration (source: https://www.google.com)', use_column_width=True)  # Center the image in the middle column
+        st.image('data/photos/k-means-clustering-illustration.png', caption='Ilustrasi k-Means Clustering (source: https://www.google.com)', use_column_width=True)  # Center the image in the middle column
 
     st.write('Metode PCA digunakan untuk mendapatkan komponen-komponen utama yang merepresentasikan data penyusun indeks. Selain itu, nilai *loadings* pada PCA bersamaan dengan nilai varians masing-masing komponen utama digunakan '
              'sebagai pembobot masing-masing variabel. Dengan kata lain, bobot masing-masing variabel penyusun indeks dibentuk dengan melakukan *dot product* antara kedua nilai tersebut. Data yang digunakan dalam proses pembobotan adalah data tahun 2020, 2021, dan 2023. Indeks kemudian dihitung dengan melakukan *dot product* antara nilai bobot dan variabel '
@@ -543,16 +545,5 @@ if selected == 'Simulation of IK DBD Value':
             
             # Calculate the index with new dataset
             count_index = input_scaled.dot(weighted_sum)
-            st.write(data_used)
-            st.write(input_scaled)
-            st.write(weighted_sum)
+            st.success('Nilai IK DBD dari hasil inputan data adalah:')
             st.write(count_index)
-            data_used.shape
-            input_scaled.shape
-            weighted_sum.shape
-            count_index.shape
-    
-            # # Normalize the weighted sum to the range [0, 1]
-            # min_max_scaler = MinMaxScaler()
-            # count_index_normalized = min_max_scaler.fit_transform(count_index)
-            # st.write(count_index_normalized)
