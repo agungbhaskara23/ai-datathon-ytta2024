@@ -388,6 +388,9 @@ if submitted:
         'rasio_dokter': validate_number(rasio_dokter)
     }
 
+    # Convert the user input to a DataFrame with a single row
+    input_df = pd.DataFrame([user_input], columns=st.session_state.df_input.columns)
+    
     # Check for None values
     if input_df.isnull().values.any():
         st.error("Please provide valid numeric input")
