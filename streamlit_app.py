@@ -116,17 +116,22 @@ if selected == 'Learn about Index Data':
         st.write("")
         st.write("### Mapping of ",variable_option, " Areas in Pulau Jawa (", year_option, ")")
         map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=False, tiles='CartoDB positron')
-        choropleth = folium.Choropleth(
-                    geo_data=gdf_2020.to_json,
-                    data=gdf_2020,
-                    columns=('KAB/KOT', variable_option),
-                    key_on='feature.properties.ADM2_EN',
-                    line_opacity=0.8,
-                    fill_opacity=0.8,
-                    highlight=True,
-                    legend_name=variable_option
-        )
-        choropleth.geojson.add_to(map)
+        
+        # Add Choropleth layer
+        try:
+            choropleth = folium.Choropleth(
+                geo_data=gdf_2020.to_json(),  # Convert GeoDataFrame to GeoJSON
+                data=gdf_2020,
+                columns=['KAB/KOT', 'Variable'],
+                key_on='feature.properties.ADM2_EN',
+                line_opacity=0.8,
+                fill_opacity=0.8,
+                highlight=True,
+                legend_name='Variable'
+            )
+            choropleth.add_to(map)
+        except ValueError as e:
+            st.error(f"Error adding Choropleth layer: {e}")
         
         # Add tooltips to each feature
         tooltip = folium.GeoJson(
