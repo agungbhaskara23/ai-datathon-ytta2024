@@ -61,7 +61,7 @@ if selected == 'About':
     col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
         
     with col2:
-        video_file = open("data/photos/Demo-Dashboard.mp4", "rb")
+        video_file = open("https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/demo-dashboard.mp4", "rb")
         video_bytes = video_file.read()
 
         st.video('video_bytes', caption='Video Demo Penggunaan Dashboard', use_column_width=True)  # Center the image in the middle column
