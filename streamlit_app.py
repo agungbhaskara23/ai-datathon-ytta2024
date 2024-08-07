@@ -258,8 +258,6 @@ if selected == 'Methodology':
         
         # Use st.markdown() to render the HTML code
         st.markdown(html_code, unsafe_allow_html=True)
-    with col1:
-        st.image('data/photos/k-means-clustering-illustration.png', caption='k-Means Clustering Illustration')
 
 # IK DBD
 if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
