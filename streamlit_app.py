@@ -323,6 +323,7 @@ if selected == 'Prediksi Nilai IK DBD':
     # page title
     st.title('Prediksi Nilai IK DBD')
 
+len_df = 0
 with st.form(key='form-index', clear_on_submit=True):
     col1, col2, col3, col4 = st.columns(4)
     with col1:
@@ -355,6 +356,29 @@ with st.form(key='form-index', clear_on_submit=True):
         rasio_dokter = st.text_input('Rasio dokter (per 1.000 penduduk)')
     
     submitted = st.form_submit_button("Store to Data")
+
+columns = ['ndbi_value','ndvi_value','ndwi_value','co2_value','co_value','curah_hujan','suhu','kelembaban','kep_pend','persen_miskin','rasio_dokter']
+df_input = pd.DataFrame(columns=columns)
+
+if submitted:
+    user_input={
+            'ndbi_value': ndbi_value,
+            'ndvi_value': ndvi_value,
+            'ndwi_value': ndwi_value, 
+            'co2_value': co2_value,
+            'co_value': co_value, 
+            'curah_hujan': curah_hujan, 
+            'suhu': suhu, 
+            'kelembaban': kelembaban, 
+            'kep_pend': kep_pend, 
+            'persen_miskin': persen_miskin,
+            'rasio_dokter': rasio_dokter 
+    }
+    input = pd.DataFrame(user_input, index=[0])
+    df_input = pd.concat(input, df_input), axis = 0
+
+st.write(df_input)
+st.write(len(df_input))
 
 st.write("")
 if st.button('Predict IK DBD Value!'):
