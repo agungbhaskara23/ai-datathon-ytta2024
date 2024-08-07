@@ -62,6 +62,15 @@ if selected == 'About':
 if selected == 'Learn about Index Data':
     # page title
     st.title('Descriptive Analysis of Variables to form Index')
+
+    st.write('Data yang digunakan terbagi menjadi 2 sumber yaitu data citra satelit fusi (gabungan dari sejumlah citra satelit) yang diakses melalui platform Google Earth Engine (GEE) dan data official yang bersumber dari Kementerian Kesehatan, Badan Pusat Statistik (BPS), dan Badan Meteorologi Klimatologi dan Geofisika (BMKG). '
+             'Data-data yang digunakan dalam penyusunan indeks tercakup ke dalam beberapa faktor, yaitu faktor cuaca, lingkungan, dan ekonomi masyarakat. Uraian data yang menjadi variabel penyusun indeks secara rinci tersaji pada gambar berikut.')
+
+    # Create columns to center the image
+    col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
+        
+    with col2:
+        st.image('data/photos/dataset-used.png', caption='Variabel-variabel penyusun IK DBD dan sumbernya', use_column_width=True)  # Center the image in the middle column
     
     # import data
     df_2020 = pd.read_csv('https://raw.githubusercontent.com/agungbhaskara23/ai-datathon-ytta2024/master/data/Dataset-Olah-2020.csv', delimiter=';', decimal=',', thousands='.')
@@ -246,6 +255,7 @@ if selected == 'Methodology':
              'Tujuan utama dari PCA adalah untuk mengurangi jumlah variabel dalam dataset sambil mempertahankan sebagian besar informasi yang terkandung di dalamnya. PCA mencari kombinasi linier dari variabel-variabel asli yang memiliki varians terbesar, sehingga memungkinkan analisis data yang lebih sederhana dan lebih mudah dipahami.')
     st.write('*k-Means Clustering* adalah metode *machine learning* berupa klasterisasi atau pengelompokkan yang digunakan untuk membagi data ke dalam beberapa kelompok (cluster) yang tidak saling tumpang tindih. Metode ini bertujuan untuk mengelompokkan data sehingga setiap data dalam satu cluster lebih mirip satu sama lain daripada data dari cluster lain. Ilustrasi '
              'dari proses PCA dan k-means clustering ditunjukkan oleh gambar berikut.')
+    
     # Create columns to center the image
     col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
         
