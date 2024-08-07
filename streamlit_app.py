@@ -123,8 +123,8 @@ if selected == 'Learn about Index Data':
         try:
             choropleth = folium.Choropleth(
                 geo_data=gdf_2020.to_json(),  # Convert GeoDataFrame to GeoJSON
-                data=df_2020,
-                columns=['KAB/KOT', 'Variable'],
+                data=gdf_2020,
+                columns=['KAB/KOT', variable_option],
                 key_on='feature.properties.ADM2_EN',
                 line_opacity=0.8,
                 fill_opacity=0.8,
