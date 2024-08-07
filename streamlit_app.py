@@ -69,7 +69,7 @@ if selected == 'About':
     col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
         
     with col2:
-        st.video('data/photos/Demo-Dashboard.mp4')
+        st.video('https://youtu.be/8ix6GJSfwmM')
     
     st.title("Author and Further Information")
     st.write('Dashboard ini merupakan hasil analisis projek AI Datathon 2024 oleh Tim YTTA. Tim YTTA beranggotakan 3 orang yaitu:')
