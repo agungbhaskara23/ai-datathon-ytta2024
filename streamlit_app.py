@@ -17,7 +17,7 @@ st.set_page_config(layout="wide")
 # Sidebar for navigation
 with st.sidebar:
     selected = option_menu('IK DBD Dashboard Menu',
-                           ['About', 'Learn about Data', 
+                           ['About', 'Learn about Data', Methodology,
                             'Indeks Kerentanan Penyakit DBD (IK DBD)','Prediksi Nilai IK DBD'],
                            menu_icon='hospital',
                            icons=['house', 'gear', 'person', 'app'],
@@ -233,6 +233,21 @@ if selected == 'Learn about Data':
     if variable_option == "Kelembaban (BMKG)" and year_option != None:
         st.write("### Deskripsi Data") 
         st.write('Ketika **kelembaban** tinggi, maka tingkat kerentanan DBD tinggi. Hal ini disebabkan karena nyamuk semakin leluasa, lingkungan lembab membantu nyamuk berkembang biak dan meningkatkan aktivitas nyamuk. Kelembaban yang bernilai rendah mengakibatkan cairan tubuh nyamuk kering akibat terjadinya penguapan')
+
+# Methodology
+if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
+    # page title
+    st.title('Index Methodology')
+
+    st.write('Pembangunan Indeks Kerentanan Penyakit Demam Berdarah Dengue (DBD) menggunakan 2 metode utama yaitu **Principal Component Analysis (PCA)** dan **k-Means Clustering**. *Principal Component Analysis* adalah teknik statistik yang digunakan untukmereduksi dimensi data dengan mengubah variabel-variabel asli menjadi komponen utama yang baru. '
+             'Tujuan utama dari PCA adalah untuk mengurangi jumlah variabel dalam dataset sambil mempertahankan sebagian besar informasi yang terkandung di dalamnya. PCA mencari kombinasi linier dari variabel-variabel asli yang memiliki varians terbesar, sehingga memungkinkan analisis data yang lebih sederhana dan lebih mudah dipahami.')
+    st.write('*k-Means Clustering* adalah metode *machine learning* berupa klasterisasi atau pengelompokkan yang digunakan untuk membagi data ke dalam beberapa kelompok (cluster) yang tidak saling tumpang tindih. Metode ini bertujuan untuk mengelompokkan data sehingga setiap data dalam satu cluster lebih mirip satu sama lain daripada data dari cluster lain. Ilustrasi '
+             'dari proses PCA dan k-means clustering ditunjukkan oleh gambar berikut.')
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image('data/photos/principal-component-analysis-illustration.jpg', caption='PCA Illustration')
+    with col1:
+        st.image('data/photos/k-means-clustering-illustration.png', caption='k-Means Clustering Illustration')
 
 # IK DBD
 if selected == 'Indeks Kerentanan Penyakit DBD (IK DBD)':
