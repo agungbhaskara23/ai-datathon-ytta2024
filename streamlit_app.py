@@ -18,7 +18,7 @@ with st.sidebar:
     selected = option_menu('IK DBD Dashboard Menu',
                            ['About', 'Learn about Index Data', 'Methodology',
                             'IK DBD Value','Simulation of IK DBD Value'],
-                           menu_icon='hospital',
+                           menu_icon='cast',
                            icons=['house', 'gear', 'list-task', 'app'],
                            default_index=0)
 
