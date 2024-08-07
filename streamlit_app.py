@@ -152,25 +152,32 @@ if selected == 'Learn about Index Data':
         col4.metric("Tertinggi", round(df_2021[variable_option].max(),4), round((df_2021[variable_option].max()) - (df_2020[variable_option].max()),4))
         col5.metric("Standar Deviasi", round(df_2021[variable_option].std(),4), round((df_2021[variable_option].std()) - (df_2020[variable_option].std()),4))
 
-        st.write("")
+st.write("")
         st.write("### Mapping of ",variable_option, " Areas in Pulau Jawa (", year_option, ")")
-        json1 = f"data/shp_java_kabkota.geojson"
-        map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=False, tiles='CartoDB positron')
+        map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=True, tiles='CartoDB positron')
+        
+        # Add Choropleth layer
         choropleth = folium.Choropleth(
-                    geo_data=json1,
-                    data=df_2021,
-                    columns=('KAB/KOT', variable_option),
-                    key_on='feature.properties.ADM2_EN',
-                    line_opacity=0.8,
-                    fill_opacity=0.8,
-                    highlight=True,
-                    legend_name=variable_option
+                geo_data=gdf_2021.to_json(),  # Convert GeoDataFrame to GeoJSON
+                data=gdf_2021,
+                columns=['KAB/KOT', variable_option],
+                key_on='feature.properties.ADM2_EN',
+                fill_color="PuBuGn",
+                line_opacity=0.8,
+                fill_opacity=0.8,
+                highlight=True,
+                legend_name=variable_option
         )
-        choropleth.geojson.add_to(map)
-        st_map = folium_static(map, width=1100, height=550) 
-
-        # tooltip = folium.features.GeoJson(json1, name="ADM2_EN", popup=folium.features.GeoJsonPop(field=["ADM2_EN"]))
-        # tooltip.geojson.add_to(map)
+        choropleth.add_to(map)
+        
+        # Add tooltips to each feature
+        tooltip = folium.GeoJson(
+            gdf_2021.to_json(),
+            name='ADM2_EN',
+            tooltip=folium.GeoJsonTooltip(fields=['ADM2_EN', variable_option], aliases=['Kab/Kota', variable_option])
+        )
+        tooltip.add_to(map)
+        st_map = folium_static(map, width=1100, height=550)
     
     if year_option == "2022" and variable_option != None:
         st.write('')
@@ -185,23 +192,30 @@ if selected == 'Learn about Index Data':
 
         st.write("")
         st.write("### Mapping of ",variable_option, " Areas in Pulau Jawa (", year_option, ")")
-        json1 = f"data/shp_java_kabkota.geojson"
-        map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=False, tiles='CartoDB positron')
+        map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=True, tiles='CartoDB positron')
+        
+        # Add Choropleth layer
         choropleth = folium.Choropleth(
-                    geo_data=json1,
-                    data=df_2022,
-                    columns=('KAB/KOT', variable_option),
-                    key_on='feature.properties.ADM2_EN',
-                    line_opacity=0.8,
-                    fill_opacity=0.8,
-                    highlight=True,
-                    legend_name=variable_option
+                geo_data=gdf_2022.to_json(),  # Convert GeoDataFrame to GeoJSON
+                data=gdf_2022,
+                columns=['KAB/KOT', variable_option],
+                key_on='feature.properties.ADM2_EN',
+                fill_color="PRGn",
+                line_opacity=0.8,
+                fill_opacity=0.8,
+                highlight=True,
+                legend_name=variable_option
         )
-        choropleth.geojson.add_to(map)
-        st_map = folium_static(map, width=1100, height=550)  
-
-        # tooltip = folium.features.GeoJson(json1, name="ADM2_EN", popup=folium.features.GeoJsonPop(field=["ADM2_EN"]))
-        # tooltip.geojson.add_to(map)
+        choropleth.add_to(map)
+        
+        # Add tooltips to each feature
+        tooltip = folium.GeoJson(
+            gdf_2022.to_json(),
+            name='ADM2_EN',
+            tooltip=folium.GeoJsonTooltip(fields=['ADM2_EN', variable_option], aliases=['Kab/Kota', variable_option])
+        )
+        tooltip.add_to(map)
+        st_map = folium_static(map, width=1100, height=550)
     
     if year_option == "2023" and variable_option != None:
         st.write('')
@@ -216,20 +230,30 @@ if selected == 'Learn about Index Data':
 
         st.write("")
         st.write("### Mapping of ",variable_option, " Areas in Pulau Jawa (", year_option, ")")
-        json1 = f"data/shp_java_kabkota.geojson"
-        map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=False, tiles='CartoDB positron')
+        map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=True, tiles='CartoDB positron')
+        
+        # Add Choropleth layer
         choropleth = folium.Choropleth(
-                    geo_data=json1,
-                    data=df_2023,
-                    columns=('KAB/KOT', variable_option),
-                    key_on='feature.properties.ADM2_EN',
-                    line_opacity=0.8,
-                    fill_opacity=0.8,
-                    highlight=True,
-                    legend_name=variable_option
+                geo_data=gdf_2020.to_json(),  # Convert GeoDataFrame to GeoJSON
+                data=gdf_2020,
+                columns=['KAB/KOT', variable_option],
+                key_on='feature.properties.ADM2_EN',
+                fill_color="RdYlBu",
+                line_opacity=0.8,
+                fill_opacity=0.8,
+                highlight=True,
+                legend_name=variable_option
         )
-        choropleth.geojson.add_to(map)
-        st_map = folium_static(map, width=1100, height=550) 
+        choropleth.add_to(map)
+        
+        # Add tooltips to each feature
+        tooltip = folium.GeoJson(
+            gdf_2020.to_json(),
+            name='ADM2_EN',
+            tooltip=folium.GeoJsonTooltip(fields=['ADM2_EN', variable_option], aliases=['Kab/Kota', variable_option])
+        )
+        tooltip.add_to(map)
+        st_map = folium_static(map, width=1100, height=550)
    
     if variable_option == "NDVI" and year_option != None:
         st.write("### Deskripsi Data") 
