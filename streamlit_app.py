@@ -57,7 +57,11 @@ if selected == 'About':
 
     st.title("How to Use it?")
     st.write('Panduan atau tutorial penggunaan dashboard ini dapat dilihat pada video berikut.')
-
+    # Create columns to center the image
+    col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths if needed
+        
+    with col2:
+        st.video('data/photos/Demo-Dashboard.mp4', caption='Video Demo Penggunaan Dashboard', use_column_width=True)  # Center the image in the middle column
 
     st.title("Author and Further Information")
     st.write('Dashboard ini merupakan hasil analisis projek AI Datathon 2024 oleh Tim YTTA. Tim YTTA beranggotakan 3 orang yaitu:')
