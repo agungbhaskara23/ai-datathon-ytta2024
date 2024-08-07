@@ -323,7 +323,7 @@ if selected == 'Prediksi Nilai IK DBD':
     # page title
     st.title('Prediksi Nilai IK DBD')
 
-with st.form(key='form-index' clear_on_submit=True):
+with st.form(key='form-index', clear_on_submit=True):
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         ndbi_value = st.text_input('NDBI Index Value')
