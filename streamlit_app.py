@@ -375,7 +375,7 @@ if submitted:
             'rasio_dokter': rasio_dokter 
     }
     input = pd.DataFrame(user_input, index=[0])
-    df_input = pd.concat([input, df_input], ignore_index=True)
+    df_input = df_input.append(input, ignore_index=True)
 
 st.write(df_input)
 st.write(len(df_input))
