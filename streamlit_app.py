@@ -116,6 +116,9 @@ if selected == 'Learn about Index Data':
         col5.metric("Standar Deviasi", round(df_2020[variable_option].std(),4), 0)
 
         st.write("")
+        st.write('Penurunan atau peningkatan yang terjadi pada nilai-nilai *summary statistics* merupakan hasil penghitungan dengan nilai pada tahun sebelumnya (kecuali tahun 2020 karena data tahun 2019 tidak digunakan)')
+        
+        st.write("")
         st.write("### Mapping of ",variable_option, " Areas in Pulau Jawa (", year_option, ")")
         map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=True, tiles='CartoDB positron')
         
@@ -152,6 +155,9 @@ if selected == 'Learn about Index Data':
         col4.metric("Tertinggi", round(df_2021[variable_option].max(),4), round((df_2021[variable_option].max()) - (df_2020[variable_option].max()),4))
         col5.metric("Standar Deviasi", round(df_2021[variable_option].std(),4), round((df_2021[variable_option].std()) - (df_2020[variable_option].std()),4))
 
+        st.write("")
+        st.write('Penurunan atau peningkatan yang terjadi pada nilai-nilai *summary statistics* merupakan hasil penghitungan dengan nilai pada tahun sebelumnya (kecuali tahun 2020 karena data tahun 2019 tidak digunakan)')
+        
         st.write("")
         st.write("### Mapping of ",variable_option, " Areas in Pulau Jawa (", year_option, ")")
         map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=True, tiles='CartoDB positron')
@@ -191,6 +197,9 @@ if selected == 'Learn about Index Data':
         col5.metric("Standar Deviasi", round(df_2022[variable_option].std(),4), round((df_2022[variable_option].std()) - (df_2021[variable_option].std()),4))
 
         st.write("")
+        st.write('Penurunan atau peningkatan yang terjadi pada nilai-nilai *summary statistics* merupakan hasil penghitungan dengan nilai pada tahun sebelumnya (kecuali tahun 2020 karena data tahun 2019 tidak digunakan)')
+        
+        st.write("")
         st.write("### Mapping of ",variable_option, " Areas in Pulau Jawa (", year_option, ")")
         map = folium.Map(location=[-7.576882, 111.819939], zoom_start=7, scrollWheelZoom=True, tiles='CartoDB positron')
         
@@ -228,6 +237,7 @@ if selected == 'Learn about Index Data':
         col4.metric("Tertinggi", round(df_2023[variable_option].max(),4), round((df_2023[variable_option].max()) - (df_2022[variable_option].max()),4))
         col5.metric("Standar Deviasi", round(df_2023[variable_option].std(),4), round((df_2023[variable_option].std()) - (df_2022[variable_option].std()),4))
 
+        st.write("")
         st.write('Penurunan atau peningkatan yang terjadi pada nilai-nilai *summary statistics* merupakan hasil penghitungan dengan nilai pada tahun sebelumnya (kecuali tahun 2020 karena data tahun 2019 tidak digunakan)')
 
         st.write("")
